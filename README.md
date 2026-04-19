@@ -1,10 +1,10 @@
 # TrumpSentimentStudy
 
 Event-study and trading-research repo for Donald Trump Truth Social posting activity during his second term, with downstream topic analysis, strategy backtests, stricter futures-style execution templates, and a realtime alert bot.
+
 ## Disclaimer
 
 I am not a financial advisor. Nothing in this repository constitutes financial, investment, trading, legal, or tax advice. This repository and its contents are provided for informational purposes only.
-
 
 ## What This Repo Contains
 
@@ -13,6 +13,15 @@ I am not a financial advisor. Nothing in this repository constitutes financial, 
 - a rules-based strategy backtest built on the corrected reference event outputs
 - a stricter delayed-event execution study for `MNQ`, `MES`, and `CL` using ETF proxies
 - a realtime jittered polling bot for new original Trump posts with Gemini topic and escalation classification
+
+## Target Audience
+
+- Rules-based intraday traders
+- Professional quants
+- Academic researchers
+- Anyone interested in event-driven trading and sentiment analysis
+- NOT for the casual trader or retail investor looking for a simple strategy
+- NOT for financial advisors (we are not) nor for financial advisors (they are not)
 
 ## Current Study Window
 
@@ -49,6 +58,7 @@ Use the repo-local virtual environment only:
 
 - Python: `/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python`
 - Pip: `/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/pip`
+- Adjust these paths for your local setup
 
 Installed packages are recorded in:
 
@@ -67,7 +77,7 @@ Code and docs:
 Input data:
 
 - [data/trump_truth_posts.csv](data/trump_truth_posts.csv): scraped Trump archive rows
-- `data/market_5m/`: TWS `5-minute` bars
+- `data/market_5m/`: `5-minute` bars
 
 Validated baseline outputs:
 
@@ -101,7 +111,7 @@ These definitions should stay fixed unless intentionally replaced:
 - authored universe: Trump originals and quotes only
 - reblogs excluded from the timed market study
 - bursts defined by a `15-minute` inactivity gap
-- market data from TWS in `5-minute` bars
+- market data in `5-minute` bars
 - event impact anchored to the first tradable bar after the burst
 - immediate vs delayed split:
   - `immediate`: `anchor_delay_minutes <= 5`
