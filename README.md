@@ -1,6 +1,10 @@
 # TrumpSentimentStudy
 
 Event-study and trading-research repo for Donald Trump Truth Social posting activity during his second term, with downstream topic analysis, strategy backtests, stricter futures-style execution templates, and a realtime alert bot.
+## Disclaimer
+
+I am not a financial advisor. Nothing in this repository constitutes financial, investment, trading, legal, or tax advice. This repository and its contents are provided for informational purposes only.
+
 
 ## What This Repo Contains
 
