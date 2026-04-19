@@ -226,8 +226,3 @@ See [realtime_post_bot/README.md](realtime_post_bot/README.md) for the bot-speci
 - Keep the validated baseline in `outputs/` intact unless you explicitly intend to replace it.
 - Write new study variants into new directories rather than overwriting existing validated outputs.
 - For delayed-event percentile work, prefer the corrected `outputs_strategy_v1/reference_*` files.
-
-## Repository Status
-
-- local Git repository initialized
-- no remote configured yet
