@@ -47,7 +47,7 @@ Do not use the old scratch `.deps` directory from the projectless workspace. Thi
 - [outputs_strategy_v1/futures_execution_v1/execution_config_summary.csv](/Users/jblo/jblo_repos/TrumpSentimentIndex/outputs_strategy_v1/futures_execution_v1/execution_config_summary.csv): stricter delayed-event execution summary for `MNQ` / `MES` / `CL` proxy trades
 - [outputs_strategy_v1/futures_execution_v1/futures_options_structure_map.csv](/Users/jblo/jblo_repos/TrumpSentimentIndex/outputs_strategy_v1/futures_execution_v1/futures_options_structure_map.csv): heuristic futures-options structure mapping tied to the recommended execution configs
 - [FUTURES_EXECUTION_MODEL_V1.md](/Users/jblo/jblo_repos/TrumpSentimentIndex/FUTURES_EXECUTION_MODEL_V1.md): human-readable stricter execution-model findings and caveats
-- [realtime_post_bot/trump_post_signal_bot.py](/Users/jblo/jblo_repos/TrumpSentimentIndex/realtime_post_bot/trump_post_signal_bot.py): 5-minute polling bot for new original Trump posts with Gemini topic tagging and study-derived alert thresholds
+- [realtime_post_bot/trump_post_signal_bot.py](/Users/jblo/jblo_repos/TrumpSentimentIndex/realtime_post_bot/trump_post_signal_bot.py): jittered polling bot for new original Trump posts with Gemini topic tagging and study-derived alert thresholds
 - [realtime_post_bot/README.md](/Users/jblo/jblo_repos/TrumpSentimentIndex/realtime_post_bot/README.md): run notes and caveats for the realtime post bot
 - [realtime_post_bot/trump_post_signal_bot.log](/Users/jblo/jblo_repos/TrumpSentimentIndex/realtime_post_bot/trump_post_signal_bot.log): append-only runtime logfile for bot polling, suppression, classification, TWS checks, and errors
 - [outputs_test](/Users/jblo/jblo_repos/TrumpSentimentIndex/outputs_test): earlier SPY/QQQ validation run
@@ -146,7 +146,7 @@ Run the stricter delayed-event `MNQ` / `MES` / `CL` execution study into its own
   --symbols SPY QQQ USO
 ```
 
-Run the realtime 5-minute Trump post bot:
+Run the realtime Trump post bot:
 
 ```bash
 /Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python \
@@ -170,7 +170,7 @@ Run the realtime 5-minute Trump post bot:
 - The strategy backtest uses a `60-minute` confirmation entry, threshold buckets at `all`, `p80`, and `p90`, and fixed `24h` / `72h` exits
 - The stricter futures execution model is delayed-only, tests `30m` / `60m` / `90m` entries, `0.75x` / `1.0x` shock-unit stops, baseline-cross profit targets, and `12h` / `24h` time stops
 - Use `outputs_strategy_v1/futures_execution_v1/execution_recommended_configs.csv` for the recommended `MNQ` / `MES` / `CL` templates and `futures_options_structure_map.csv` for the matching heuristic options structures
-- The realtime bot polls every `5 minutes`, uses `GOOGLE_API_KEY`, prints the latest post with usable text on startup, emits the normal actionable alert path for an actionable startup preview, prints both Gemini topic and Gemini escalation assessments with separate confidences, suppresses no-text posts from stdout, emits a `.` heartbeat after each successful poll cycle, bootstraps without replaying old posts on first run, persists `last_seen_status_id` in `realtime_post_bot/bot_state.json`, appends detailed actions to `realtime_post_bot/trump_post_signal_bot.log`, and on macOS speaks the Gemini escalation word for actionable posts
+- The realtime bot polls on a default jittered `60-180` second cadence, uses `GOOGLE_API_KEY`, prints the latest post with usable text on startup, emits the normal actionable alert path for an actionable startup preview, prints both Gemini topic and Gemini escalation assessments with separate confidences, suppresses no-text posts from stdout, emits a `.` heartbeat after each successful poll cycle, bootstraps without replaying old posts on first run, persists `last_seen_status_id` in `realtime_post_bot/bot_state.json`, appends detailed actions to `realtime_post_bot/trump_post_signal_bot.log`, and on macOS speaks `Alert Escalation`, `Alert Deescalation`, or `Alert Neutral` for actionable posts
 - If you add a new study variant, write outputs to a new directory rather than overwriting the current validated baseline unless the user asks
 
 ## Repo State

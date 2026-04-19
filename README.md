@@ -8,7 +8,7 @@ Event-study and trading-research repo for Donald Trump Truth Social posting acti
 - a deterministic topic study that keeps the baseline event definitions unchanged
 - a rules-based strategy backtest built on the corrected reference event outputs
 - a stricter delayed-event execution study for `MNQ`, `MES`, and `CL` using ETF proxies
-- a realtime 5-minute polling bot for new original Trump posts with Gemini topic and escalation classification
+- a realtime jittered polling bot for new original Trump posts with Gemini topic and escalation classification
 
 ## Current Study Window
 
@@ -186,7 +186,7 @@ Run the realtime post bot:
 
 What it does:
 
-- polls the archive every `5 minutes`
+- polls the archive on a default `60-180` second jittered cadence
 - looks for new original Trump posts
 - uses Gemini to assign both topic and `ESCALATION` / `DE-ESCALATION` / `NEUTRAL`
 - alerts only on historically actionable topic buckets

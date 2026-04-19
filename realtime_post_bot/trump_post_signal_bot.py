@@ -6,6 +6,7 @@ import json
 import logging
 import os
 import platform
+import random
 import shutil
 import subprocess
 import sys
@@ -39,7 +40,8 @@ from truth_event_study import (  # noqa: E402
 )
 
 
-DEFAULT_POLL_SECONDS = 300
+DEFAULT_POLL_SECONDS = 60
+DEFAULT_MAX_JITTER_SECONDS = 120
 DEFAULT_PER_PAGE = 40
 DEFAULT_GEMINI_MODEL = "gemini-3.1-pro-preview"
 DEFAULT_MIN_GEMINI_CONFIDENCE = 0.75
@@ -115,6 +117,14 @@ def setup_file_logger(log_file: Path) -> None:
     handler.setFormatter(logging.Formatter("%(asctime)s %(levelname)s %(message)s"))
     LOGGER.addHandler(handler)
     LOGGER.propagate = False
+
+
+def choose_sleep_seconds(base_poll_seconds: int, max_jitter_seconds: int) -> int:
+    if base_poll_seconds < 1:
+        raise ValueError("base_poll_seconds must be at least 1")
+    if max_jitter_seconds < 0:
+        raise ValueError("max_jitter_seconds must be non-negative")
+    return base_poll_seconds + random.randint(0, max_jitter_seconds)
 
 
 def speech_word_for_escalation_label(escalation_label: str) -> str:
@@ -806,9 +816,10 @@ def process_new_posts(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Poll Trump Truth Social archive every 5 minutes, classify new original posts, and emit tradable alerts."
+        description="Poll Trump Truth Social archive on a jittered cadence, classify new original posts, and emit tradable alerts."
     )
     parser.add_argument("--poll-seconds", type=int, default=DEFAULT_POLL_SECONDS)
+    parser.add_argument("--max-jitter-seconds", type=int, default=DEFAULT_MAX_JITTER_SECONDS)
     parser.add_argument("--per-page", type=int, default=DEFAULT_PER_PAGE)
     parser.add_argument("--state-file", type=Path, default=DEFAULT_STATE_PATH)
     parser.add_argument("--log-file", type=Path, default=DEFAULT_LOG_PATH)
@@ -825,20 +836,44 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
+    if args.poll_seconds < 1:
+        raise ValueError("--poll-seconds must be at least 1")
+    if args.max_jitter_seconds < 0:
+        raise ValueError("--max-jitter-seconds must be non-negative")
     setup_file_logger(args.log_file)
-    LOGGER.info("bot_start state_file=%s log_file=%s poll_seconds=%s per_page=%s", args.state_file, args.log_file, args.poll_seconds, args.per_page)
+    LOGGER.info(
+        "bot_start state_file=%s log_file=%s poll_seconds=%s max_jitter_seconds=%s per_page=%s",
+        args.state_file,
+        args.log_file,
+        args.poll_seconds,
+        args.max_jitter_seconds,
+        args.per_page,
+    )
     LOGGER.info(
         "host_os=%s macos_speech_enabled=%s macos_say_path=%s",
         HOST_OS,
         bool(MACOS_SAY_PATH),
         MACOS_SAY_PATH or "",
     )
-    if args.poll_seconds != DEFAULT_POLL_SECONDS:
+    if (
+        args.poll_seconds != DEFAULT_POLL_SECONDS
+        or args.max_jitter_seconds != DEFAULT_MAX_JITTER_SECONDS
+    ):
         print(
-            f"[config] poll_seconds={args.poll_seconds} (default study bot cadence is {DEFAULT_POLL_SECONDS}s / 5 minutes)",
+            f"[config] poll_window_seconds={args.poll_seconds}-{args.poll_seconds + args.max_jitter_seconds} "
+            f"(default cadence is {DEFAULT_POLL_SECONDS}-{DEFAULT_POLL_SECONDS + DEFAULT_MAX_JITTER_SECONDS}s)",
             flush=True,
         )
-        LOGGER.info("config_override poll_seconds=%s", args.poll_seconds)
+        LOGGER.info(
+            "config_override poll_seconds=%s max_jitter_seconds=%s",
+            args.poll_seconds,
+            args.max_jitter_seconds,
+        )
+    else:
+        print(
+            f"[config] poll_window_seconds={DEFAULT_POLL_SECONDS}-{DEFAULT_POLL_SECONDS + DEFAULT_MAX_JITTER_SECONDS}",
+            flush=True,
+        )
 
     watch_map = load_validation_watch_map(args.outputs_root)
     actionable_topics = ", ".join(sorted(watch_map)) if watch_map else "[none]"
@@ -886,7 +921,9 @@ def main() -> int:
         if args.once:
             LOGGER.info("bot_exit once=True")
             return 0
-        time.sleep(args.poll_seconds)
+        sleep_seconds = choose_sleep_seconds(args.poll_seconds, args.max_jitter_seconds)
+        LOGGER.info("poll_sleep seconds=%s", sleep_seconds)
+        time.sleep(sleep_seconds)
 
 
 if __name__ == "__main__":

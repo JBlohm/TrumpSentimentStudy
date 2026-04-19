@@ -1,10 +1,10 @@
 # Realtime Post Bot
 
-This bot polls the public `trumpstruth.org` archive every `5 minutes`, looks for new original `@realDonaldTrump` posts, classifies them into the study topic buckets, and emits an alert only for categories that cleared the study's delayed-event filters.
+This bot polls the public `trumpstruth.org` archive on a randomized `1-3 minute` cadence, looks for new original `@realDonaldTrump` posts, classifies them into the study topic buckets, and emits an alert only for categories that cleared the study's delayed-event filters.
 
 ## What It Does
 
-- checks for new original Trump posts every `300` seconds
+- checks for new original Trump posts on a jittered cadence of `60` seconds plus a random `0-120` second delay
 - on startup, prints the latest original Trump post with usable text from the current archive page
 - uses Gemini 3 over the official REST `generateContent` endpoint with `GOOGLE_API_KEY`
 - asks Gemini for both a topic bucket and an `ESCALATION` / `DE-ESCALATION` / `NEUTRAL` situation assessment with separate confidence levels
@@ -63,6 +63,7 @@ Optional overrides:
 - `--state-file`
 - `--per-page`
 - `--poll-seconds`
+- `--max-jitter-seconds`
 
 ## Behavior Notes
 
@@ -74,6 +75,7 @@ Optional overrides:
 - posts with no usable text are still logged and still advance the seen-post state
 - if multiple new original Trump posts appear within one polling interval, the bot processes all unseen posts in chronological order within the fetched page
 - every successful poll writes a single `.` to stdout without a newline as a heartbeat
+- the default sleep window after each poll is `60-180` seconds
 - the bot persists `last_seen_status_id` in `realtime_post_bot/bot_state.json`
 - the bot appends a timestamped action log to `realtime_post_bot/trump_post_signal_bot.log`
 - spoken macOS output is derived from the Gemini escalation label and is ignored on non-mac hosts
