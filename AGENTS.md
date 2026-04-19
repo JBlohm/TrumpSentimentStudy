@@ -1,4 +1,4 @@
-# TrumpSentimentIndex Agent Notes
+# TrumpSentimentStudy Agent Notes
 
 ## Purpose
 
@@ -20,38 +20,38 @@ The current study window is:
 
 Always use the repo-local virtual environment:
 
-- Python: `/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python`
-- Pip: `/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/pip`
+- Python: `/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python`
+- Pip: `/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/pip`
 
-Installed dependencies are recorded in [requirements.txt](/Users/jblo/jblo_repos/TrumpSentimentIndex/requirements.txt).
+Installed dependencies are recorded in [requirements.txt](/Users/jblo/jblo_repos/TrumpSentimentStudy/requirements.txt).
 
 Do not use the old scratch `.deps` directory from the projectless workspace. This repo is now the working copy.
 
 ## Repo Layout
 
-- [truth_event_study.py](/Users/jblo/jblo_repos/TrumpSentimentIndex/truth_event_study.py): scraper, IBKR fetcher, and analysis pipeline
-- [data/trump_truth_posts.csv](/Users/jblo/jblo_repos/TrumpSentimentIndex/data/trump_truth_posts.csv): scraped archive rows
-- [data/market_5m](/Users/jblo/jblo_repos/TrumpSentimentIndex/data/market_5m): 5-minute IBKR market bars
-- [outputs/event_level_market_reaction.csv](/Users/jblo/jblo_repos/TrumpSentimentIndex/outputs/event_level_market_reaction.csv): event-level market reactions
-- [outputs/authored_bursts.csv](/Users/jblo/jblo_repos/TrumpSentimentIndex/outputs/authored_bursts.csv): 15-minute burst definitions
-- [outputs/weekday_hour_cluster.csv](/Users/jblo/jblo_repos/TrumpSentimentIndex/outputs/weekday_hour_cluster.csv): timing cluster summary
-- [outputs/summary.json](/Users/jblo/jblo_repos/TrumpSentimentIndex/outputs/summary.json): high-level summary stats
-- [outputs_topics_v1/topic_symbol_timing_summary.csv](/Users/jblo/jblo_repos/TrumpSentimentIndex/outputs_topics_v1/topic_symbol_timing_summary.csv): topic x symbol x timing regime summary table
-- [outputs_topics_v1/topic_tagging_rules.json](/Users/jblo/jblo_repos/TrumpSentimentIndex/outputs_topics_v1/topic_tagging_rules.json): deterministic topic-tagging rulebook used for the topic study
-- [TOPIC_STUDY_V1.md](/Users/jblo/jblo_repos/TrumpSentimentIndex/TOPIC_STUDY_V1.md): human-readable topic-study results and caveats
-- [outputs_strategy_v1/reference_event_level_market_reaction.csv](/Users/jblo/jblo_repos/TrumpSentimentIndex/outputs_strategy_v1/reference_event_level_market_reaction.csv): corrected reference event-study output used by the strategy backtest
-- [outputs_strategy_v1/strategy_timing_summary.csv](/Users/jblo/jblo_repos/TrumpSentimentIndex/outputs_strategy_v1/strategy_timing_summary.csv): strategy x timing x threshold summary
-- [outputs_strategy_v1/strategy_topic_symbol_summary.csv](/Users/jblo/jblo_repos/TrumpSentimentIndex/outputs_strategy_v1/strategy_topic_symbol_summary.csv): strategy x topic x symbol x timing summary
-- [outputs_strategy_v1/strategy_trade_log.csv](/Users/jblo/jblo_repos/TrumpSentimentIndex/outputs_strategy_v1/strategy_trade_log.csv): event-level strategy proxy trade log
-- [STRATEGY_BACKTEST_V1.md](/Users/jblo/jblo_repos/TrumpSentimentIndex/STRATEGY_BACKTEST_V1.md): human-readable strategy backtest findings and caveats
-- [outputs_strategy_v1/futures_execution_v1/execution_config_summary.csv](/Users/jblo/jblo_repos/TrumpSentimentIndex/outputs_strategy_v1/futures_execution_v1/execution_config_summary.csv): stricter delayed-event execution summary for `MNQ` / `MES` / `CL` proxy trades
-- [outputs_strategy_v1/futures_execution_v1/futures_options_structure_map.csv](/Users/jblo/jblo_repos/TrumpSentimentIndex/outputs_strategy_v1/futures_execution_v1/futures_options_structure_map.csv): heuristic futures-options structure mapping tied to the recommended execution configs
-- [FUTURES_EXECUTION_MODEL_V1.md](/Users/jblo/jblo_repos/TrumpSentimentIndex/FUTURES_EXECUTION_MODEL_V1.md): human-readable stricter execution-model findings and caveats
-- [realtime_post_bot/trump_post_signal_bot.py](/Users/jblo/jblo_repos/TrumpSentimentIndex/realtime_post_bot/trump_post_signal_bot.py): jittered polling bot for new original Trump posts with Gemini topic tagging and study-derived alert thresholds
-- [realtime_post_bot/README.md](/Users/jblo/jblo_repos/TrumpSentimentIndex/realtime_post_bot/README.md): run notes and caveats for the realtime post bot
-- [realtime_post_bot/trump_post_signal_bot.log](/Users/jblo/jblo_repos/TrumpSentimentIndex/realtime_post_bot/trump_post_signal_bot.log): append-only runtime logfile for bot polling, suppression, classification, TWS checks, and errors
-- [outputs_test](/Users/jblo/jblo_repos/TrumpSentimentIndex/outputs_test): earlier SPY/QQQ validation run
-- [STUDY_RESULTS_AND_NEXT_STEPS.md](/Users/jblo/jblo_repos/TrumpSentimentIndex/STUDY_RESULTS_AND_NEXT_STEPS.md): human-readable handoff
+- [truth_event_study.py](/Users/jblo/jblo_repos/TrumpSentimentStudy/truth_event_study.py): scraper, IBKR fetcher, and analysis pipeline
+- [data/trump_truth_posts.csv](/Users/jblo/jblo_repos/TrumpSentimentStudy/data/trump_truth_posts.csv): scraped archive rows
+- [data/market_5m](/Users/jblo/jblo_repos/TrumpSentimentStudy/data/market_5m): 5-minute IBKR market bars
+- [outputs/event_level_market_reaction.csv](/Users/jblo/jblo_repos/TrumpSentimentStudy/outputs/event_level_market_reaction.csv): event-level market reactions
+- [outputs/authored_bursts.csv](/Users/jblo/jblo_repos/TrumpSentimentStudy/outputs/authored_bursts.csv): 15-minute burst definitions
+- [outputs/weekday_hour_cluster.csv](/Users/jblo/jblo_repos/TrumpSentimentStudy/outputs/weekday_hour_cluster.csv): timing cluster summary
+- [outputs/summary.json](/Users/jblo/jblo_repos/TrumpSentimentStudy/outputs/summary.json): high-level summary stats
+- [outputs_topics_v1/topic_symbol_timing_summary.csv](/Users/jblo/jblo_repos/TrumpSentimentStudy/outputs_topics_v1/topic_symbol_timing_summary.csv): topic x symbol x timing regime summary table
+- [outputs_topics_v1/topic_tagging_rules.json](/Users/jblo/jblo_repos/TrumpSentimentStudy/outputs_topics_v1/topic_tagging_rules.json): deterministic topic-tagging rulebook used for the topic study
+- [TOPIC_STUDY_V1.md](/Users/jblo/jblo_repos/TrumpSentimentStudy/TOPIC_STUDY_V1.md): human-readable topic-study results and caveats
+- [outputs_strategy_v1/reference_event_level_market_reaction.csv](/Users/jblo/jblo_repos/TrumpSentimentStudy/outputs_strategy_v1/reference_event_level_market_reaction.csv): corrected reference event-study output used by the strategy backtest
+- [outputs_strategy_v1/strategy_timing_summary.csv](/Users/jblo/jblo_repos/TrumpSentimentStudy/outputs_strategy_v1/strategy_timing_summary.csv): strategy x timing x threshold summary
+- [outputs_strategy_v1/strategy_topic_symbol_summary.csv](/Users/jblo/jblo_repos/TrumpSentimentStudy/outputs_strategy_v1/strategy_topic_symbol_summary.csv): strategy x topic x symbol x timing summary
+- [outputs_strategy_v1/strategy_trade_log.csv](/Users/jblo/jblo_repos/TrumpSentimentStudy/outputs_strategy_v1/strategy_trade_log.csv): event-level strategy proxy trade log
+- [STRATEGY_BACKTEST_V1.md](/Users/jblo/jblo_repos/TrumpSentimentStudy/STRATEGY_BACKTEST_V1.md): human-readable strategy backtest findings and caveats
+- [outputs_strategy_v1/futures_execution_v1/execution_config_summary.csv](/Users/jblo/jblo_repos/TrumpSentimentStudy/outputs_strategy_v1/futures_execution_v1/execution_config_summary.csv): stricter delayed-event execution summary for `MNQ` / `MES` / `CL` proxy trades
+- [outputs_strategy_v1/futures_execution_v1/futures_options_structure_map.csv](/Users/jblo/jblo_repos/TrumpSentimentStudy/outputs_strategy_v1/futures_execution_v1/futures_options_structure_map.csv): heuristic futures-options structure mapping tied to the recommended execution configs
+- [FUTURES_EXECUTION_MODEL_V1.md](/Users/jblo/jblo_repos/TrumpSentimentStudy/FUTURES_EXECUTION_MODEL_V1.md): human-readable stricter execution-model findings and caveats
+- [realtime_post_bot/trump_post_signal_bot.py](/Users/jblo/jblo_repos/TrumpSentimentStudy/realtime_post_bot/trump_post_signal_bot.py): jittered polling bot for new original Trump posts with Gemini topic tagging and study-derived alert thresholds
+- [realtime_post_bot/README.md](/Users/jblo/jblo_repos/TrumpSentimentStudy/realtime_post_bot/README.md): run notes and caveats for the realtime post bot
+- [realtime_post_bot/trump_post_signal_bot.log](/Users/jblo/jblo_repos/TrumpSentimentStudy/realtime_post_bot/trump_post_signal_bot.log): append-only runtime logfile for bot polling, suppression, classification, TWS checks, and errors
+- [outputs_test](/Users/jblo/jblo_repos/TrumpSentimentStudy/outputs_test): earlier SPY/QQQ validation run
+- [STUDY_RESULTS_AND_NEXT_STEPS.md](/Users/jblo/jblo_repos/TrumpSentimentStudy/STUDY_RESULTS_AND_NEXT_STEPS.md): human-readable handoff
 
 ## Validated Study Definitions
 
@@ -88,7 +88,7 @@ Use the repo-local environment explicitly.
 Scrape posts from a cursor-seeded start date:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python truth_event_study.py scrape-posts \
+/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py scrape-posts \
   --output data/trump_truth_posts.csv \
   --start-date 2025-01-20
 ```
@@ -96,7 +96,7 @@ Scrape posts from a cursor-seeded start date:
 Fetch market data from TWS:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python truth_event_study.py fetch-market \
+/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py fetch-market \
   --output-dir data/market_5m \
   --symbols SPY QQQ GLD SLV USO UNG \
   --start-date-et 2025-01-20 \
@@ -109,7 +109,7 @@ Fetch market data from TWS:
 Run the analysis:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python truth_event_study.py analyze \
+/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py analyze \
   --posts-csv data/trump_truth_posts.csv \
   --market-dir data/market_5m \
   --output-dir outputs \
@@ -119,7 +119,7 @@ Run the analysis:
 Run the deterministic topic study without overwriting the validated baseline:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python truth_event_study.py analyze \
+/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py analyze \
   --posts-csv data/trump_truth_posts.csv \
   --market-dir data/market_5m \
   --output-dir outputs_topics_v1 \
@@ -129,7 +129,7 @@ Run the deterministic topic study without overwriting the validated baseline:
 Run the topic-aware strategy backtest without overwriting the validated baseline:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python truth_event_study.py backtest-strategy \
+/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py backtest-strategy \
   --posts-csv data/trump_truth_posts.csv \
   --market-dir data/market_5m \
   --output-dir outputs_strategy_v1 \
@@ -139,7 +139,7 @@ Run the topic-aware strategy backtest without overwriting the validated baseline
 Run the stricter delayed-event `MNQ` / `MES` / `CL` execution study into its own subfolder:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python truth_event_study.py backtest-futures-execution \
+/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py backtest-futures-execution \
   --posts-csv data/trump_truth_posts.csv \
   --market-dir data/market_5m \
   --output-dir outputs_strategy_v1/futures_execution_v1 \
@@ -149,8 +149,8 @@ Run the stricter delayed-event `MNQ` / `MES` / `CL` execution study into its own
 Run the realtime Trump post bot:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python \
-  /Users/jblo/jblo_repos/TrumpSentimentIndex/realtime_post_bot/trump_post_signal_bot.py
+/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python \
+  /Users/jblo/jblo_repos/TrumpSentimentStudy/realtime_post_bot/trump_post_signal_bot.py
 ```
 
 ## How To Continue

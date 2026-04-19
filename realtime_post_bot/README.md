@@ -37,15 +37,15 @@ Derived from `outputs_strategy_v1/strategy_topic_symbol_summary.csv` using delay
 ## Run
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python \
-  /Users/jblo/jblo_repos/TrumpSentimentIndex/realtime_post_bot/trump_post_signal_bot.py
+/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python \
+  /Users/jblo/jblo_repos/TrumpSentimentStudy/realtime_post_bot/trump_post_signal_bot.py
 ```
 
 One-shot test:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python \
-  /Users/jblo/jblo_repos/TrumpSentimentIndex/realtime_post_bot/trump_post_signal_bot.py \
+/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python \
+  /Users/jblo/jblo_repos/TrumpSentimentStudy/realtime_post_bot/trump_post_signal_bot.py \
   --once
 ```
 

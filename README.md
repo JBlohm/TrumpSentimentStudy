@@ -1,4 +1,4 @@
-# TrumpSentimentIndex
+# TrumpSentimentStudy
 
 Event-study and trading-research repo for Donald Trump Truth Social posting activity during his second term, with downstream topic analysis, strategy backtests, stricter futures-style execution templates, and a realtime alert bot.
 
@@ -43,8 +43,8 @@ The main human-readable summaries are:
 
 Use the repo-local virtual environment only:
 
-- Python: `/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python`
-- Pip: `/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/pip`
+- Python: `/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python`
+- Pip: `/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/pip`
 
 Installed packages are recorded in:
 
@@ -117,7 +117,7 @@ These definitions should stay fixed unless intentionally replaced:
 Scrape archive rows:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python truth_event_study.py scrape-posts \
+/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py scrape-posts \
   --output data/trump_truth_posts.csv \
   --start-date 2025-01-20
 ```
@@ -125,7 +125,7 @@ Scrape archive rows:
 Fetch market data from TWS:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python truth_event_study.py fetch-market \
+/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py fetch-market \
   --output-dir data/market_5m \
   --symbols SPY QQQ GLD SLV USO UNG \
   --start-date-et 2025-01-20 \
@@ -138,7 +138,7 @@ Fetch market data from TWS:
 Run the validated baseline analysis:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python truth_event_study.py analyze \
+/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py analyze \
   --posts-csv data/trump_truth_posts.csv \
   --market-dir data/market_5m \
   --output-dir outputs \
@@ -148,7 +148,7 @@ Run the validated baseline analysis:
 Run the deterministic topic study into a separate directory:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python truth_event_study.py analyze \
+/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py analyze \
   --posts-csv data/trump_truth_posts.csv \
   --market-dir data/market_5m \
   --output-dir outputs_topics_v1 \
@@ -158,7 +158,7 @@ Run the deterministic topic study into a separate directory:
 Run the topic-aware strategy backtest:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python truth_event_study.py backtest-strategy \
+/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py backtest-strategy \
   --posts-csv data/trump_truth_posts.csv \
   --market-dir data/market_5m \
   --output-dir outputs_strategy_v1 \
@@ -168,7 +168,7 @@ Run the topic-aware strategy backtest:
 Run the stricter futures execution study:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python truth_event_study.py backtest-futures-execution \
+/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py backtest-futures-execution \
   --posts-csv data/trump_truth_posts.csv \
   --market-dir data/market_5m \
   --output-dir outputs_strategy_v1/futures_execution_v1 \
@@ -180,8 +180,8 @@ Run the stricter futures execution study:
 Run the realtime post bot:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python \
-  /Users/jblo/jblo_repos/TrumpSentimentIndex/realtime_post_bot/trump_post_signal_bot.py
+/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python \
+  /Users/jblo/jblo_repos/TrumpSentimentStudy/realtime_post_bot/trump_post_signal_bot.py
 ```
 
 What it does:

@@ -193,11 +193,11 @@ The more defensible continuation is:
 
 ## Files To Use
 
-- [truth_event_study.py](/Users/jblo/jblo_repos/TrumpSentimentIndex/truth_event_study.py)
-- [outputs/event_level_market_reaction.csv](/Users/jblo/jblo_repos/TrumpSentimentIndex/outputs/event_level_market_reaction.csv)
-- [outputs/authored_bursts.csv](/Users/jblo/jblo_repos/TrumpSentimentIndex/outputs/authored_bursts.csv)
-- [outputs/weekday_hour_cluster.csv](/Users/jblo/jblo_repos/TrumpSentimentIndex/outputs/weekday_hour_cluster.csv)
-- [outputs/summary.json](/Users/jblo/jblo_repos/TrumpSentimentIndex/outputs/summary.json)
+- [truth_event_study.py](/Users/jblo/jblo_repos/TrumpSentimentStudy/truth_event_study.py)
+- [outputs/event_level_market_reaction.csv](/Users/jblo/jblo_repos/TrumpSentimentStudy/outputs/event_level_market_reaction.csv)
+- [outputs/authored_bursts.csv](/Users/jblo/jblo_repos/TrumpSentimentStudy/outputs/authored_bursts.csv)
+- [outputs/weekday_hour_cluster.csv](/Users/jblo/jblo_repos/TrumpSentimentStudy/outputs/weekday_hour_cluster.csv)
+- [outputs/summary.json](/Users/jblo/jblo_repos/TrumpSentimentStudy/outputs/summary.json)
 
 ## Recommended Next Steps
 
@@ -257,13 +257,13 @@ Create new output directories for:
 Use the repo-local environment:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python truth_event_study.py scrape-posts \
+/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py scrape-posts \
   --output data/trump_truth_posts.csv \
   --start-date 2025-01-20
 ```
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python truth_event_study.py fetch-market \
+/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py fetch-market \
   --output-dir data/market_5m \
   --symbols SPY QQQ GLD SLV USO UNG \
   --start-date-et 2025-01-20 \
@@ -274,7 +274,7 @@ Use the repo-local environment:
 ```
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentIndex/.venv/bin/python truth_event_study.py analyze \
+/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py analyze \
   --posts-csv data/trump_truth_posts.csv \
   --market-dir data/market_5m \
   --output-dir outputs \

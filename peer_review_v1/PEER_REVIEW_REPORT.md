@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-This peer review validates the data, methodology, and code for the complete `TrumpSentimentIndex` pipeline, including the newly added **Futures Execution Model**. The study identifies a robust market-neutral opportunity: **fading the initial "shock" of market-closed Trump bursts** using a disciplined intraday execution framework.
+This peer review validates the data, methodology, and code for the complete `TrumpSentimentStudy` pipeline, including the newly added **Futures Execution Model**. The study identifies a robust market-neutral opportunity: **fading the initial "shock" of market-closed Trump bursts** using a disciplined intraday execution framework.
 
 The execution layer successfully addresses previous backtest limitations by implementing:
 1.  **5-minute Intrabay Stop Detection:** Monitoring high/low prices for realistic stop-loss simulation.
