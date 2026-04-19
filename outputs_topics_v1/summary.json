@@ -1,0 +1,199 @@
+{
+  "archive_rows": 8676,
+  "authored_rows": 8146,
+  "reblog_rows": 342,
+  "empty_text_rows": 2638,
+  "authored_bursts_15m": 3272,
+  "analyzable_bursts": 3256,
+  "dropped_bursts_market_window": 16,
+  "study_range_et": {
+    "start": "2025-01-20T08:17:00-05:00",
+    "end": "2026-04-18T21:07:00-04:00"
+  },
+  "weekday_counts": {
+    "Tuesday": 516,
+    "Friday": 504,
+    "Thursday": 498,
+    "Monday": 496,
+    "Wednesday": 494,
+    "Saturday": 387,
+    "Sunday": 377
+  },
+  "hour_counts": {
+    "0": 100,
+    "1": 37,
+    "2": 15,
+    "3": 9,
+    "4": 9,
+    "5": 31,
+    "6": 62,
+    "7": 150,
+    "8": 160,
+    "9": 218,
+    "10": 195,
+    "11": 183,
+    "12": 154,
+    "13": 181,
+    "14": 161,
+    "15": 190,
+    "16": 198,
+    "17": 195,
+    "18": 232,
+    "19": 194,
+    "20": 167,
+    "21": 161,
+    "22": 141,
+    "23": 129
+  },
+  "session_counts": {
+    "post_rth": 1417,
+    "rth": 1184,
+    "pre_rth": 671
+  },
+  "symbol_summary": {
+    "GLD": {
+      "event_count": 3256,
+      "median_ret_60m": 0.000433036312969759,
+      "median_abs_ret_60m": 0.0025055318631335144,
+      "mean_abs_ret_60m_slot_percentile": 0.5156771198447611,
+      "mean_abs_ret_60m_slot_percentile_ci95": [
+        0.5013932453149086,
+        0.5281870357525229
+      ],
+      "median_peak_abs_ret_24h": 0.011518627312837482,
+      "reversion_rate_5d": 0.6096437346437347,
+      "median_anchor_delay_minutes": 4.0,
+      "median_reversion_minutes_after_first_trade": 1540.0,
+      "median_reversion_minutes_from_event": 2265.0
+    },
+    "QQQ": {
+      "event_count": 3256,
+      "median_ret_60m": 8.94321895738015e-05,
+      "median_abs_ret_60m": 0.002428963673222151,
+      "mean_abs_ret_60m_slot_percentile": 0.5247663314450784,
+      "mean_abs_ret_60m_slot_percentile_ci95": [
+        0.5110312034756227,
+        0.5382073252833904
+      ],
+      "median_peak_abs_ret_24h": 0.010800594032671862,
+      "reversion_rate_5d": 0.7091523341523341,
+      "median_anchor_delay_minutes": 4.0,
+      "median_reversion_minutes_after_first_trade": 1770.0,
+      "median_reversion_minutes_from_event": 2485.0
+    },
+    "SLV": {
+      "event_count": 3256,
+      "median_ret_60m": 0.000672835247377046,
+      "median_abs_ret_60m": 0.003963011889035695,
+      "mean_abs_ret_60m_slot_percentile": 0.5088218030138072,
+      "mean_abs_ret_60m_slot_percentile_ci95": [
+        0.49542647932994055,
+        0.5213239170989152
+      ],
+      "median_peak_abs_ret_24h": 0.019147927864695213,
+      "reversion_rate_5d": 0.6382063882063882,
+      "median_anchor_delay_minutes": 4.0,
+      "median_reversion_minutes_after_first_trade": 1545.0,
+      "median_reversion_minutes_from_event": 2427.5
+    },
+    "SPY": {
+      "event_count": 3256,
+      "median_ret_60m": 0.00012255842576724962,
+      "median_abs_ret_60m": 0.0017894861786185712,
+      "mean_abs_ret_60m_slot_percentile": 0.5305085068227446,
+      "mean_abs_ret_60m_slot_percentile_ci95": [
+        0.5164567703325909,
+        0.5434882649164867
+      ],
+      "median_peak_abs_ret_24h": 0.008312769328725156,
+      "reversion_rate_5d": 0.6916461916461917,
+      "median_anchor_delay_minutes": 4.0,
+      "median_reversion_minutes_after_first_trade": 1780.0,
+      "median_reversion_minutes_from_event": 2422.0
+    },
+    "UNG": {
+      "event_count": 3256,
+      "median_ret_60m": 0.0,
+      "median_abs_ret_60m": 0.007207797574770025,
+      "mean_abs_ret_60m_slot_percentile": 0.5437698627622545,
+      "mean_abs_ret_60m_slot_percentile_ci95": [
+        0.5305655882315414,
+        0.5568281600110918
+      ],
+      "median_peak_abs_ret_24h": 0.033842794759825434,
+      "reversion_rate_5d": 0.6345208845208845,
+      "median_anchor_delay_minutes": 4.0,
+      "median_reversion_minutes_after_first_trade": 1650.0,
+      "median_reversion_minutes_from_event": 2343.5
+    },
+    "USO": {
+      "event_count": 3256,
+      "median_ret_60m": 0.00013607515592217734,
+      "median_abs_ret_60m": 0.003831891223733064,
+      "mean_abs_ret_60m_slot_percentile": 0.534011425647981,
+      "mean_abs_ret_60m_slot_percentile_ci95": [
+        0.520126835626565,
+        0.5467504135582036
+      ],
+      "median_peak_abs_ret_24h": 0.018276109820227482,
+      "reversion_rate_5d": 0.6845823095823096,
+      "median_anchor_delay_minutes": 4.0,
+      "median_reversion_minutes_after_first_trade": 1610.0,
+      "median_reversion_minutes_from_event": 2377.0
+    }
+  },
+  "timing_regime_counts": {
+    "immediate": 1872,
+    "delayed": 1384
+  },
+  "topic_tagging": {
+    "rule_version": "strict_regex_unique_match_v1",
+    "burst_topic_counts": {
+      "tariffs_trade": 133,
+      "war_geopolitics": 271,
+      "oil_gas_energy": 31,
+      "fed_inflation_rates": 58,
+      "immigration_border": 127,
+      "domestic_politics_attacks": 206,
+      "other": 2446
+    },
+    "single_topic_bursts": 826,
+    "ambiguous_topic_bursts": 479,
+    "no_topic_match_bursts": 1967,
+    "all_text_empty_bursts": 534,
+    "topic_timing_counts": {
+      "tariffs_trade": {
+        "immediate": 95,
+        "delayed": 38
+      },
+      "war_geopolitics": {
+        "immediate": 162,
+        "delayed": 107
+      },
+      "oil_gas_energy": {
+        "immediate": 24,
+        "delayed": 7
+      },
+      "fed_inflation_rates": {
+        "immediate": 46,
+        "delayed": 12
+      },
+      "immigration_border": {
+        "immediate": 84,
+        "delayed": 43
+      },
+      "domestic_politics_attacks": {
+        "immediate": 96,
+        "delayed": 109
+      },
+      "other": {
+        "immediate": 1365,
+        "delayed": 1068
+      }
+    }
+  },
+  "sentiment_cutoffs": {
+    "0.1": -0.8246399999999999,
+    "0.9": 0.9863
+  }
+}

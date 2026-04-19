@@ -1,0 +1,63 @@
+{
+  "proxy_map": {
+    "QQQ": {
+      "futures_symbol": "MNQ",
+      "futures_product": "Micro E-mini Nasdaq-100 futures",
+      "options_product": "Options on Micro E-mini Nasdaq-100 futures",
+      "contract_unit": "1 MNQ futures contract",
+      "product_url": "https://www.cmegroup.com/markets/equities/nasdaq/micro-e-mini-nasdaq-100.contractSpecs.options.html",
+      "hours_url": "https://www.cmegroup.com/trading/equity-index/us-index/micro-e-mini-options.html",
+      "hours_note": "CME Globex nearly 24x5 with a daily maintenance halt; confirm holiday hours before trading.",
+      "expirations_note": "Weekly, end-of-month, and quarterly expirations are available."
+    },
+    "SPY": {
+      "futures_symbol": "MES",
+      "futures_product": "Micro E-mini S&P 500 futures",
+      "options_product": "Options on Micro E-mini S&P 500 futures",
+      "contract_unit": "1 MES futures contract",
+      "product_url": "https://www.cmegroup.com/markets/equities/sp/micro-e-mini-sandp-500.contractSpecs.options.html",
+      "hours_url": "https://www.cmegroup.com/trading/equity-index/us-index/micro-e-mini-options.html",
+      "hours_note": "CME Globex nearly 24x5 with a daily maintenance halt; confirm holiday hours before trading.",
+      "expirations_note": "Weekly, end-of-month, and quarterly expirations are available."
+    },
+    "USO": {
+      "futures_symbol": "CL",
+      "futures_product": "NYMEX WTI Crude Oil futures",
+      "options_product": "WTI Crude Oil options",
+      "contract_unit": "1,000 barrels",
+      "product_url": "https://www.cmegroup.com/markets/energy/crude-oil/light-sweet-crude.contractSpecs.options.html",
+      "hours_url": "https://www.cmegroup.com/articles/faqs/faq-tuesday-and-thursday-weekly-wti-options.html",
+      "hours_note": "CME Globex trades Sunday-Friday with a daily maintenance halt; confirm holiday hours before trading.",
+      "expirations_note": "Monthly and weekly expirations are available."
+    }
+  },
+  "entry_windows_minutes": [
+    30,
+    60,
+    90
+  ],
+  "thresholds": [
+    {
+      "label": "all",
+      "min_entry_abs_ret_slot_percentile": 0.0
+    },
+    {
+      "label": "p80",
+      "min_entry_abs_ret_slot_percentile": 0.8
+    },
+    {
+      "label": "p90",
+      "min_entry_abs_ret_slot_percentile": 0.9
+    }
+  ],
+  "stop_units": [
+    0.75,
+    1.0
+  ],
+  "time_stops_hours": [
+    12,
+    24
+  ],
+  "profit_target": "pre-event baseline cross",
+  "stop_logic": "5-minute high/low intrabar stop detection with stop-first tie-break"
+}

@@ -1,0 +1,573 @@
+{
+  "reference_counts": {
+    "archive_rows": 8676,
+    "authored_rows": 8146,
+    "reblog_rows": 342,
+    "empty_text_rows": 2638,
+    "authored_bursts_15m": 3272,
+    "analyzable_bursts": 3256,
+    "dropped_bursts_market_window": 16,
+    "study_range_et": {
+      "start": "2025-01-20T08:17:00-05:00",
+      "end": "2026-04-18T21:07:00-04:00"
+    },
+    "weekday_counts": {
+      "Tuesday": 516,
+      "Friday": 504,
+      "Thursday": 498,
+      "Monday": 496,
+      "Wednesday": 494,
+      "Saturday": 387,
+      "Sunday": 377
+    },
+    "hour_counts": {
+      "0": 100,
+      "1": 37,
+      "2": 15,
+      "3": 9,
+      "4": 9,
+      "5": 31,
+      "6": 62,
+      "7": 150,
+      "8": 160,
+      "9": 218,
+      "10": 195,
+      "11": 183,
+      "12": 154,
+      "13": 181,
+      "14": 161,
+      "15": 190,
+      "16": 198,
+      "17": 195,
+      "18": 232,
+      "19": 194,
+      "20": 167,
+      "21": 161,
+      "22": 141,
+      "23": 129
+    },
+    "session_counts": {
+      "post_rth": 1417,
+      "rth": 1184,
+      "pre_rth": 671
+    },
+    "symbol_summary": {
+      "QQQ": {
+        "event_count": 3256,
+        "median_ret_60m": 8.94321895738015e-05,
+        "median_abs_ret_60m": 0.002428963673222151,
+        "mean_abs_ret_60m_slot_percentile": 0.6594650732557158,
+        "mean_abs_ret_60m_slot_percentile_ci95": [
+          0.6483213970609054,
+          0.6702849863997129
+        ],
+        "median_peak_abs_ret_24h": 0.010800594032671862,
+        "reversion_rate_5d": 0.7091523341523341,
+        "median_anchor_delay_minutes": 4.0,
+        "median_reversion_minutes_after_first_trade": 1770.0,
+        "median_reversion_minutes_from_event": 2485.0
+      },
+      "SPY": {
+        "event_count": 3256,
+        "median_ret_60m": 0.00012255842576724962,
+        "median_abs_ret_60m": 0.0017894861786185712,
+        "mean_abs_ret_60m_slot_percentile": 0.65355415278223,
+        "mean_abs_ret_60m_slot_percentile_ci95": [
+          0.6429946836190745,
+          0.6649709250180419
+        ],
+        "median_peak_abs_ret_24h": 0.008312769328725156,
+        "reversion_rate_5d": 0.6916461916461917,
+        "median_anchor_delay_minutes": 4.0,
+        "median_reversion_minutes_after_first_trade": 1780.0,
+        "median_reversion_minutes_from_event": 2422.0
+      },
+      "USO": {
+        "event_count": 3256,
+        "median_ret_60m": 0.00013607515592217734,
+        "median_abs_ret_60m": 0.003831891223733064,
+        "mean_abs_ret_60m_slot_percentile": 0.6025126716393979,
+        "mean_abs_ret_60m_slot_percentile_ci95": [
+          0.5921766930908832,
+          0.612935282353814
+        ],
+        "median_peak_abs_ret_24h": 0.018276109820227482,
+        "reversion_rate_5d": 0.6845823095823096,
+        "median_anchor_delay_minutes": 4.0,
+        "median_reversion_minutes_after_first_trade": 1610.0,
+        "median_reversion_minutes_from_event": 2377.0
+      }
+    },
+    "timing_regime_counts": {
+      "immediate": 1872,
+      "delayed": 1384
+    },
+    "topic_tagging": {
+      "rule_version": "strict_regex_unique_match_v1",
+      "burst_topic_counts": {
+        "tariffs_trade": 133,
+        "war_geopolitics": 271,
+        "oil_gas_energy": 31,
+        "fed_inflation_rates": 58,
+        "immigration_border": 127,
+        "domestic_politics_attacks": 206,
+        "other": 2446
+      },
+      "single_topic_bursts": 826,
+      "ambiguous_topic_bursts": 479,
+      "no_topic_match_bursts": 1967,
+      "all_text_empty_bursts": 534,
+      "topic_timing_counts": {
+        "tariffs_trade": {
+          "immediate": 95,
+          "delayed": 38
+        },
+        "war_geopolitics": {
+          "immediate": 162,
+          "delayed": 107
+        },
+        "oil_gas_energy": {
+          "immediate": 24,
+          "delayed": 7
+        },
+        "fed_inflation_rates": {
+          "immediate": 46,
+          "delayed": 12
+        },
+        "immigration_border": {
+          "immediate": 84,
+          "delayed": 43
+        },
+        "domestic_politics_attacks": {
+          "immediate": 96,
+          "delayed": 109
+        },
+        "other": {
+          "immediate": 1365,
+          "delayed": 1068
+        }
+      }
+    },
+    "sentiment_cutoffs": {
+      "0.1": -0.8246399999999999,
+      "0.9": 0.9863
+    }
+  },
+  "execution_assumptions": {
+    "proxy_map": {
+      "QQQ": {
+        "futures_symbol": "MNQ",
+        "futures_product": "Micro E-mini Nasdaq-100 futures",
+        "options_product": "Options on Micro E-mini Nasdaq-100 futures",
+        "contract_unit": "1 MNQ futures contract",
+        "product_url": "https://www.cmegroup.com/markets/equities/nasdaq/micro-e-mini-nasdaq-100.contractSpecs.options.html",
+        "hours_url": "https://www.cmegroup.com/trading/equity-index/us-index/micro-e-mini-options.html",
+        "hours_note": "CME Globex nearly 24x5 with a daily maintenance halt; confirm holiday hours before trading.",
+        "expirations_note": "Weekly, end-of-month, and quarterly expirations are available."
+      },
+      "SPY": {
+        "futures_symbol": "MES",
+        "futures_product": "Micro E-mini S&P 500 futures",
+        "options_product": "Options on Micro E-mini S&P 500 futures",
+        "contract_unit": "1 MES futures contract",
+        "product_url": "https://www.cmegroup.com/markets/equities/sp/micro-e-mini-sandp-500.contractSpecs.options.html",
+        "hours_url": "https://www.cmegroup.com/trading/equity-index/us-index/micro-e-mini-options.html",
+        "hours_note": "CME Globex nearly 24x5 with a daily maintenance halt; confirm holiday hours before trading.",
+        "expirations_note": "Weekly, end-of-month, and quarterly expirations are available."
+      },
+      "USO": {
+        "futures_symbol": "CL",
+        "futures_product": "NYMEX WTI Crude Oil futures",
+        "options_product": "WTI Crude Oil options",
+        "contract_unit": "1,000 barrels",
+        "product_url": "https://www.cmegroup.com/markets/energy/crude-oil/light-sweet-crude.contractSpecs.options.html",
+        "hours_url": "https://www.cmegroup.com/articles/faqs/faq-tuesday-and-thursday-weekly-wti-options.html",
+        "hours_note": "CME Globex trades Sunday-Friday with a daily maintenance halt; confirm holiday hours before trading.",
+        "expirations_note": "Monthly and weekly expirations are available."
+      }
+    },
+    "timing_regime": "delayed only",
+    "entry_windows_minutes": [
+      30,
+      60,
+      90
+    ],
+    "thresholds": [
+      {
+        "label": "all",
+        "min_entry_abs_ret_slot_percentile": 0.0
+      },
+      {
+        "label": "p80",
+        "min_entry_abs_ret_slot_percentile": 0.8
+      },
+      {
+        "label": "p90",
+        "min_entry_abs_ret_slot_percentile": 0.9
+      }
+    ],
+    "stop_units": [
+      0.75,
+      1.0
+    ],
+    "time_stops_hours": [
+      12,
+      24
+    ],
+    "profit_target": "first cross back through the pre-event baseline",
+    "stop_priority": "If target and stop are both touched in the same 5-minute bar, count it as a stop.",
+    "fill_model": "Enter at the close of the selected entry bar, then evaluate stops and targets from the next 5-minute bar onward."
+  },
+  "signal_rows": 12428,
+  "trade_rows": 49694,
+  "signals_by_product_and_entry_window": [
+    {
+      "futures_symbol": "CL",
+      "entry_window_minutes": 30,
+      "signal_count": 1381
+    },
+    {
+      "futures_symbol": "CL",
+      "entry_window_minutes": 60,
+      "signal_count": 1381
+    },
+    {
+      "futures_symbol": "CL",
+      "entry_window_minutes": 90,
+      "signal_count": 1371
+    },
+    {
+      "futures_symbol": "MES",
+      "entry_window_minutes": 30,
+      "signal_count": 1384
+    },
+    {
+      "futures_symbol": "MES",
+      "entry_window_minutes": 60,
+      "signal_count": 1380
+    },
+    {
+      "futures_symbol": "MES",
+      "entry_window_minutes": 90,
+      "signal_count": 1379
+    },
+    {
+      "futures_symbol": "MNQ",
+      "entry_window_minutes": 30,
+      "signal_count": 1384
+    },
+    {
+      "futures_symbol": "MNQ",
+      "entry_window_minutes": 60,
+      "signal_count": 1384
+    },
+    {
+      "futures_symbol": "MNQ",
+      "entry_window_minutes": 90,
+      "signal_count": 1384
+    }
+  ],
+  "recommended_configs": [
+    {
+      "futures_symbol": "CL",
+      "threshold_label": "p90",
+      "entry_window_minutes": 90,
+      "stop_units": 1.0,
+      "time_stop_hours": 12,
+      "trade_count": 481,
+      "win_rate": 0.7089397089397089,
+      "median_r": 0.28491620111731464,
+      "mean_r": 0.24847403433259765
+    },
+    {
+      "futures_symbol": "MES",
+      "threshold_label": "p90",
+      "entry_window_minutes": 60,
+      "stop_units": 0.75,
+      "time_stop_hours": 24,
+      "trade_count": 807,
+      "win_rate": 0.5390334572490706,
+      "median_r": 0.7363494539781605,
+      "mean_r": 0.2804156261132558
+    },
+    {
+      "futures_symbol": "MNQ",
+      "threshold_label": "p90",
+      "entry_window_minutes": 60,
+      "stop_units": 0.75,
+      "time_stop_hours": 24,
+      "trade_count": 847,
+      "win_rate": 0.667060212514758,
+      "median_r": 1.3333333333333333,
+      "mean_r": 0.5280816554227455
+    }
+  ],
+  "top_configs": [
+    {
+      "futures_symbol": "MNQ",
+      "threshold_label": "p90",
+      "entry_window_minutes": 60,
+      "stop_units": 0.75,
+      "time_stop_hours": 24,
+      "trade_count": 847,
+      "win_rate": 0.667060212514758,
+      "median_r": 1.3333333333333333,
+      "mean_r": 0.5280816554227455
+    },
+    {
+      "futures_symbol": "MNQ",
+      "threshold_label": "p80",
+      "entry_window_minutes": 60,
+      "stop_units": 0.75,
+      "time_stop_hours": 24,
+      "trade_count": 1063,
+      "win_rate": 0.6575729068673566,
+      "median_r": 1.3333333333333333,
+      "mean_r": 0.5117138558887404
+    },
+    {
+      "futures_symbol": "MNQ",
+      "threshold_label": "p90",
+      "entry_window_minutes": 60,
+      "stop_units": 0.75,
+      "time_stop_hours": 12,
+      "trade_count": 847,
+      "win_rate": 0.6269185360094451,
+      "median_r": 1.3333333333333333,
+      "mean_r": 0.5107539741616077
+    },
+    {
+      "futures_symbol": "MNQ",
+      "threshold_label": "p80",
+      "entry_window_minutes": 60,
+      "stop_units": 0.75,
+      "time_stop_hours": 12,
+      "trade_count": 1063,
+      "win_rate": 0.625587958607714,
+      "median_r": 1.3333333333333333,
+      "mean_r": 0.4979071333786898
+    },
+    {
+      "futures_symbol": "MNQ",
+      "threshold_label": "p80",
+      "entry_window_minutes": 60,
+      "stop_units": 1.0,
+      "time_stop_hours": 24,
+      "trade_count": 1063,
+      "win_rate": 0.7328316086547507,
+      "median_r": 1.0,
+      "mean_r": 0.46158625451288016
+    },
+    {
+      "futures_symbol": "MNQ",
+      "threshold_label": "p80",
+      "entry_window_minutes": 90,
+      "stop_units": 1.0,
+      "time_stop_hours": 24,
+      "trade_count": 1013,
+      "win_rate": 0.7137216189536032,
+      "median_r": 1.0,
+      "mean_r": 0.4522677626190428
+    },
+    {
+      "futures_symbol": "MNQ",
+      "threshold_label": "p90",
+      "entry_window_minutes": 60,
+      "stop_units": 1.0,
+      "time_stop_hours": 24,
+      "trade_count": 847,
+      "win_rate": 0.7272727272727273,
+      "median_r": 1.0,
+      "mean_r": 0.44942879403446473
+    },
+    {
+      "futures_symbol": "MNQ",
+      "threshold_label": "p90",
+      "entry_window_minutes": 30,
+      "stop_units": 1.0,
+      "time_stop_hours": 24,
+      "trade_count": 1002,
+      "win_rate": 0.7235528942115769,
+      "median_r": 1.0,
+      "mean_r": 0.4458154123078026
+    },
+    {
+      "futures_symbol": "MNQ",
+      "threshold_label": "p80",
+      "entry_window_minutes": 60,
+      "stop_units": 1.0,
+      "time_stop_hours": 12,
+      "trade_count": 1063,
+      "win_rate": 0.6980244590780809,
+      "median_r": 1.0,
+      "mean_r": 0.4388698018787484
+    },
+    {
+      "futures_symbol": "MNQ",
+      "threshold_label": "p80",
+      "entry_window_minutes": 30,
+      "stop_units": 1.0,
+      "time_stop_hours": 24,
+      "trade_count": 1112,
+      "win_rate": 0.7185251798561151,
+      "median_r": 1.0,
+      "mean_r": 0.4358876287162034
+    },
+    {
+      "futures_symbol": "MNQ",
+      "threshold_label": "p80",
+      "entry_window_minutes": 90,
+      "stop_units": 1.0,
+      "time_stop_hours": 12,
+      "trade_count": 1013,
+      "win_rate": 0.702862783810464,
+      "median_r": 1.0,
+      "mean_r": 0.4211707639935018
+    },
+    {
+      "futures_symbol": "MNQ",
+      "threshold_label": "p90",
+      "entry_window_minutes": 60,
+      "stop_units": 1.0,
+      "time_stop_hours": 12,
+      "trade_count": 847,
+      "win_rate": 0.6835891381345927,
+      "median_r": 1.0,
+      "mean_r": 0.42091924368017664
+    }
+  ],
+  "worst_configs": [
+    {
+      "futures_symbol": "CL",
+      "threshold_label": "p80",
+      "entry_window_minutes": 90,
+      "stop_units": 0.75,
+      "time_stop_hours": 24,
+      "trade_count": 648,
+      "win_rate": 0.49228395061728397,
+      "median_r": -0.21176470588234947,
+      "mean_r": -0.013606780906251321
+    },
+    {
+      "futures_symbol": "CL",
+      "threshold_label": "p80",
+      "entry_window_minutes": 90,
+      "stop_units": 0.75,
+      "time_stop_hours": 12,
+      "trade_count": 649,
+      "win_rate": 0.5269645608628659,
+      "median_r": 0.08523592085235937,
+      "mean_r": 0.006976618276935421
+    },
+    {
+      "futures_symbol": "CL",
+      "threshold_label": "p90",
+      "entry_window_minutes": 30,
+      "stop_units": 0.75,
+      "time_stop_hours": 24,
+      "trade_count": 756,
+      "win_rate": 0.47619047619047616,
+      "median_r": -0.05797101449275601,
+      "mean_r": 0.0880387674785819
+    },
+    {
+      "futures_symbol": "CL",
+      "threshold_label": "p90",
+      "entry_window_minutes": 30,
+      "stop_units": 0.75,
+      "time_stop_hours": 12,
+      "trade_count": 756,
+      "win_rate": 0.49074074074074076,
+      "median_r": -0.010582010582000916,
+      "mean_r": 0.10284514099391957
+    },
+    {
+      "futures_symbol": "CL",
+      "threshold_label": "p80",
+      "entry_window_minutes": 30,
+      "stop_units": 0.75,
+      "time_stop_hours": 24,
+      "trade_count": 847,
+      "win_rate": 0.4817001180637544,
+      "median_r": -0.05797101449275601,
+      "mean_r": 0.10337344535278413
+    },
+    {
+      "futures_symbol": "CL",
+      "threshold_label": "p80",
+      "entry_window_minutes": 60,
+      "stop_units": 1.0,
+      "time_stop_hours": 24,
+      "trade_count": 730,
+      "win_rate": 0.584931506849315,
+      "median_r": 0.2994652406417117,
+      "mean_r": 0.1098635195004179
+    },
+    {
+      "futures_symbol": "CL",
+      "threshold_label": "p80",
+      "entry_window_minutes": 30,
+      "stop_units": 0.75,
+      "time_stop_hours": 12,
+      "trade_count": 847,
+      "win_rate": 0.4946871310507674,
+      "median_r": -0.010582010582000916,
+      "mean_r": 0.11658905146564755
+    },
+    {
+      "futures_symbol": "MES",
+      "threshold_label": "p80",
+      "entry_window_minutes": 90,
+      "stop_units": 1.0,
+      "time_stop_hours": 12,
+      "trade_count": 966,
+      "win_rate": 0.567287784679089,
+      "median_r": 0.46950354609929035,
+      "mean_r": 0.12393156514532234
+    },
+    {
+      "futures_symbol": "MES",
+      "threshold_label": "p80",
+      "entry_window_minutes": 30,
+      "stop_units": 1.0,
+      "time_stop_hours": 12,
+      "trade_count": 1117,
+      "win_rate": 0.5389435989256938,
+      "median_r": 0.33746678476527525,
+      "mean_r": 0.12444820669865994
+    },
+    {
+      "futures_symbol": "CL",
+      "threshold_label": "p80",
+      "entry_window_minutes": 90,
+      "stop_units": 1.0,
+      "time_stop_hours": 24,
+      "trade_count": 648,
+      "win_rate": 0.6157407407407407,
+      "median_r": 0.4272727272727257,
+      "mean_r": 0.130665489072731
+    },
+    {
+      "futures_symbol": "CL",
+      "threshold_label": "p80",
+      "entry_window_minutes": 60,
+      "stop_units": 1.0,
+      "time_stop_hours": 12,
+      "trade_count": 731,
+      "win_rate": 0.6320109439124487,
+      "median_r": 0.1555555555555516,
+      "mean_r": 0.1311403842167015
+    },
+    {
+      "futures_symbol": "CL",
+      "threshold_label": "p80",
+      "entry_window_minutes": 60,
+      "stop_units": 0.75,
+      "time_stop_hours": 24,
+      "trade_count": 730,
+      "win_rate": 0.5315068493150685,
+      "median_r": 0.3487179487179517,
+      "mean_r": 0.1391455266792151
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "confirm_minutes": 60,
+  "thresholds": [
+    {
+      "label": "all",
+      "min_entry_abs_ret_60m_slot_percentile": 0.0
+    },
+    {
+      "label": "p80",
+      "min_entry_abs_ret_60m_slot_percentile": 0.8
+    },
+    {
+      "label": "p90",
+      "min_entry_abs_ret_60m_slot_percentile": 0.9
+    }
+  ],
+  "exit_hours": [
+    24,
+    72
+  ],
+  "long_straddle_cap_r": 5.0,
+  "credit_proxy": {
+    "short_strike_distance_shock_units": 0.5,
+    "spread_width_shock_units": 1.0,
+    "credit_fraction_of_width": 0.35
+  },
+  "strategies": [
+    {
+      "strategy_name": "fade_debit_24h",
+      "metric_col": "fade_debit_r_24h",
+      "horizon_hours": 24,
+      "family": "debit_spread_proxy",
+      "thesis": "Fade the first-hour shock and exit after 24 hours."
+    },
+    {
+      "strategy_name": "fade_credit_24h",
+      "metric_col": "fade_credit_r_24h",
+      "horizon_hours": 24,
+      "family": "credit_spread_proxy",
+      "thesis": "Sell a farther-out fade spread and mark it after 24 hours."
+    },
+    {
+      "strategy_name": "follow_debit_24h",
+      "metric_col": "follow_debit_r_24h",
+      "horizon_hours": 24,
+      "family": "debit_spread_proxy",
+      "thesis": "Control: follow the first-hour shock and exit after 24 hours."
+    },
+    {
+      "strategy_name": "fade_debit_72h",
+      "metric_col": "fade_debit_r_72h",
+      "horizon_hours": 72,
+      "family": "debit_spread_proxy",
+      "thesis": "Fade the first-hour shock and exit after 72 hours."
+    },
+    {
+      "strategy_name": "fade_credit_72h",
+      "metric_col": "fade_credit_r_72h",
+      "horizon_hours": 72,
+      "family": "credit_spread_proxy",
+      "thesis": "Sell a farther-out fade spread and mark it after 72 hours."
+    },
+    {
+      "strategy_name": "long_straddle_24h",
+      "metric_col": "long_straddle_r_24h",
+      "horizon_hours": 24,
+      "family": "long_vol_proxy",
+      "thesis": "Control: buy a long-vol sleeve after the first-hour shock and mark it after 24 hours."
+    },
+    {
+      "strategy_name": "long_straddle_72h",
+      "metric_col": "long_straddle_r_72h",
+      "horizon_hours": 72,
+      "family": "long_vol_proxy",
+      "thesis": "Control: buy a long-vol sleeve after the first-hour shock and mark it after 72 hours."
+    }
+  ]
+}

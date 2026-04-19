@@ -1,0 +1,575 @@
+{
+  "reference_counts": {
+    "archive_rows": 8676,
+    "authored_rows": 8146,
+    "reblog_rows": 342,
+    "empty_text_rows": 2638,
+    "authored_bursts_15m": 3272,
+    "analyzable_bursts": 3256,
+    "dropped_bursts_market_window": 16,
+    "study_range_et": {
+      "start": "2025-01-20T08:17:00-05:00",
+      "end": "2026-04-18T21:07:00-04:00"
+    },
+    "weekday_counts": {
+      "Tuesday": 516,
+      "Friday": 504,
+      "Thursday": 498,
+      "Monday": 496,
+      "Wednesday": 494,
+      "Saturday": 387,
+      "Sunday": 377
+    },
+    "hour_counts": {
+      "0": 100,
+      "1": 37,
+      "2": 15,
+      "3": 9,
+      "4": 9,
+      "5": 31,
+      "6": 62,
+      "7": 150,
+      "8": 160,
+      "9": 218,
+      "10": 195,
+      "11": 183,
+      "12": 154,
+      "13": 181,
+      "14": 161,
+      "15": 190,
+      "16": 198,
+      "17": 195,
+      "18": 232,
+      "19": 194,
+      "20": 167,
+      "21": 161,
+      "22": 141,
+      "23": 129
+    },
+    "session_counts": {
+      "post_rth": 1417,
+      "rth": 1184,
+      "pre_rth": 671
+    },
+    "symbol_summary": {
+      "GLD": {
+        "event_count": 3256,
+        "median_ret_60m": 0.000433036312969759,
+        "median_abs_ret_60m": 0.0025055318631335144,
+        "mean_abs_ret_60m_slot_percentile": 0.6430636966769735,
+        "mean_abs_ret_60m_slot_percentile_ci95": [
+          0.6317146302932392,
+          0.6533052407882358
+        ],
+        "median_peak_abs_ret_24h": 0.011518627312837482,
+        "reversion_rate_5d": 0.6096437346437347,
+        "median_anchor_delay_minutes": 4.0,
+        "median_reversion_minutes_after_first_trade": 1540.0,
+        "median_reversion_minutes_from_event": 2265.0
+      },
+      "QQQ": {
+        "event_count": 3256,
+        "median_ret_60m": 8.94321895738015e-05,
+        "median_abs_ret_60m": 0.002428963673222151,
+        "mean_abs_ret_60m_slot_percentile": 0.6594650732557158,
+        "mean_abs_ret_60m_slot_percentile_ci95": [
+          0.6483213970609054,
+          0.6702849863997129
+        ],
+        "median_peak_abs_ret_24h": 0.010800594032671862,
+        "reversion_rate_5d": 0.7091523341523341,
+        "median_anchor_delay_minutes": 4.0,
+        "median_reversion_minutes_after_first_trade": 1770.0,
+        "median_reversion_minutes_from_event": 2485.0
+      },
+      "SLV": {
+        "event_count": 3256,
+        "median_ret_60m": 0.000672835247377046,
+        "median_abs_ret_60m": 0.003963011889035695,
+        "mean_abs_ret_60m_slot_percentile": 0.6277815402456355,
+        "mean_abs_ret_60m_slot_percentile_ci95": [
+          0.6169451371754842,
+          0.6390294708788382
+        ],
+        "median_peak_abs_ret_24h": 0.019147927864695213,
+        "reversion_rate_5d": 0.6382063882063882,
+        "median_anchor_delay_minutes": 4.0,
+        "median_reversion_minutes_after_first_trade": 1545.0,
+        "median_reversion_minutes_from_event": 2427.5
+      },
+      "SPY": {
+        "event_count": 3256,
+        "median_ret_60m": 0.00012255842576724962,
+        "median_abs_ret_60m": 0.0017894861786185712,
+        "mean_abs_ret_60m_slot_percentile": 0.65355415278223,
+        "mean_abs_ret_60m_slot_percentile_ci95": [
+          0.6429946836190745,
+          0.6649709250180419
+        ],
+        "median_peak_abs_ret_24h": 0.008312769328725156,
+        "reversion_rate_5d": 0.6916461916461917,
+        "median_anchor_delay_minutes": 4.0,
+        "median_reversion_minutes_after_first_trade": 1780.0,
+        "median_reversion_minutes_from_event": 2422.0
+      },
+      "UNG": {
+        "event_count": 3256,
+        "median_ret_60m": 0.0,
+        "median_abs_ret_60m": 0.007207797574770025,
+        "mean_abs_ret_60m_slot_percentile": 0.6754479740999658,
+        "mean_abs_ret_60m_slot_percentile_ci95": [
+          0.6645509436953926,
+          0.6859798931736825
+        ],
+        "median_peak_abs_ret_24h": 0.033842794759825434,
+        "reversion_rate_5d": 0.6345208845208845,
+        "median_anchor_delay_minutes": 4.0,
+        "median_reversion_minutes_after_first_trade": 1650.0,
+        "median_reversion_minutes_from_event": 2343.5
+      },
+      "USO": {
+        "event_count": 3256,
+        "median_ret_60m": 0.00013607515592217734,
+        "median_abs_ret_60m": 0.003831891223733064,
+        "mean_abs_ret_60m_slot_percentile": 0.6025126716393979,
+        "mean_abs_ret_60m_slot_percentile_ci95": [
+          0.5921766930908832,
+          0.612935282353814
+        ],
+        "median_peak_abs_ret_24h": 0.018276109820227482,
+        "reversion_rate_5d": 0.6845823095823096,
+        "median_anchor_delay_minutes": 4.0,
+        "median_reversion_minutes_after_first_trade": 1610.0,
+        "median_reversion_minutes_from_event": 2377.0
+      }
+    },
+    "timing_regime_counts": {
+      "immediate": 1872,
+      "delayed": 1384
+    },
+    "topic_tagging": {
+      "rule_version": "strict_regex_unique_match_v1",
+      "burst_topic_counts": {
+        "tariffs_trade": 133,
+        "war_geopolitics": 271,
+        "oil_gas_energy": 31,
+        "fed_inflation_rates": 58,
+        "immigration_border": 127,
+        "domestic_politics_attacks": 206,
+        "other": 2446
+      },
+      "single_topic_bursts": 826,
+      "ambiguous_topic_bursts": 479,
+      "no_topic_match_bursts": 1967,
+      "all_text_empty_bursts": 534,
+      "topic_timing_counts": {
+        "tariffs_trade": {
+          "immediate": 95,
+          "delayed": 38
+        },
+        "war_geopolitics": {
+          "immediate": 162,
+          "delayed": 107
+        },
+        "oil_gas_energy": {
+          "immediate": 24,
+          "delayed": 7
+        },
+        "fed_inflation_rates": {
+          "immediate": 46,
+          "delayed": 12
+        },
+        "immigration_border": {
+          "immediate": 84,
+          "delayed": 43
+        },
+        "domestic_politics_attacks": {
+          "immediate": 96,
+          "delayed": 109
+        },
+        "other": {
+          "immediate": 1365,
+          "delayed": 1068
+        }
+      }
+    },
+    "sentiment_cutoffs": {
+      "0.1": -0.8246399999999999,
+      "0.9": 0.9863
+    }
+  },
+  "backtest_assumptions": {
+    "confirm_minutes": 60,
+    "thresholds": [
+      {
+        "label": "all",
+        "min_entry_abs_ret_60m_slot_percentile": 0.0
+      },
+      {
+        "label": "p80",
+        "min_entry_abs_ret_60m_slot_percentile": 0.8
+      },
+      {
+        "label": "p90",
+        "min_entry_abs_ret_60m_slot_percentile": 0.9
+      }
+    ],
+    "exit_hours": [
+      24,
+      72
+    ],
+    "credit_proxy": {
+      "short_strike_distance_shock_units": 0.5,
+      "spread_width_shock_units": 1.0,
+      "credit_fraction_of_width": 0.35
+    },
+    "long_straddle_proxy": {
+      "premium_proxy": "one initial shock unit",
+      "capped_r_multiple": 5.0
+    }
+  },
+  "strategy_trade_rows": 19200,
+  "weekend_trade_share": 0.2365625,
+  "top_delayed_strategy_configs": [
+    {
+      "strategy_name": "long_straddle_72h",
+      "threshold_label": "all",
+      "trade_count": 8242,
+      "win_rate": 0.7183935937879156,
+      "median_r": 1.2305630026809675,
+      "mean_r": 1.8677103345234332
+    },
+    {
+      "strategy_name": "long_straddle_24h",
+      "threshold_label": "all",
+      "trade_count": 8266,
+      "win_rate": 0.5835954512460683,
+      "median_r": 0.30303030303023126,
+      "mean_r": 1.1899055006378199
+    },
+    {
+      "strategy_name": "long_straddle_72h",
+      "threshold_label": "p80",
+      "trade_count": 6046,
+      "win_rate": 0.64455838570956,
+      "median_r": 0.5338753387533817,
+      "mean_r": 1.1337289892308742
+    },
+    {
+      "strategy_name": "long_straddle_72h",
+      "threshold_label": "p90",
+      "trade_count": 4866,
+      "win_rate": 0.5990546650226058,
+      "median_r": 0.3662461059190144,
+      "mean_r": 0.9046264340867042
+    },
+    {
+      "strategy_name": "long_straddle_24h",
+      "threshold_label": "p80",
+      "trade_count": 6057,
+      "win_rate": 0.4718507511969622,
+      "median_r": -0.051612903225830564,
+      "mean_r": 0.4639096744134761
+    },
+    {
+      "strategy_name": "long_straddle_24h",
+      "threshold_label": "p90",
+      "trade_count": 4874,
+      "win_rate": 0.44501436192039395,
+      "median_r": -0.1330409356725104,
+      "mean_r": 0.3083046240734088
+    },
+    {
+      "strategy_name": "fade_credit_24h",
+      "threshold_label": "p90",
+      "trade_count": 4874,
+      "win_rate": 0.7732868280672959,
+      "median_r": 0.5384615384615384,
+      "mean_r": 0.22280166475804244
+    },
+    {
+      "strategy_name": "fade_credit_24h",
+      "threshold_label": "p80",
+      "trade_count": 6057,
+      "win_rate": 0.7635793297011721,
+      "median_r": 0.5384615384615384,
+      "mean_r": 0.20242404775109546
+    },
+    {
+      "strategy_name": "fade_credit_24h",
+      "threshold_label": "all",
+      "trade_count": 8266,
+      "win_rate": 0.7160658117590128,
+      "median_r": 0.5384615384615384,
+      "mean_r": 0.12411166206105755
+    },
+    {
+      "strategy_name": "fade_debit_24h",
+      "threshold_label": "all",
+      "trade_count": 8266,
+      "win_rate": 0.5281877570771837,
+      "median_r": 0.13498622589531947,
+      "mean_r": 0.06557945524809451
+    },
+    {
+      "strategy_name": "fade_debit_24h",
+      "threshold_label": "p80",
+      "trade_count": 6057,
+      "win_rate": 0.52781905233614,
+      "median_r": 0.10588235294116043,
+      "mean_r": 0.06414610925293941
+    },
+    {
+      "strategy_name": "fade_debit_24h",
+      "threshold_label": "p90",
+      "trade_count": 4874,
+      "win_rate": 0.5170291341813705,
+      "median_r": 0.07982261640797704,
+      "mean_r": 0.04690770187679599
+    }
+  ],
+  "top_topic_symbol_slices": [
+    {
+      "strategy_name": "long_straddle_72h",
+      "threshold_label": "p80",
+      "topic_bucket": "tariffs_trade",
+      "symbol": "QQQ",
+      "trade_count": 30,
+      "win_rate": 0.8,
+      "median_r": 1.4615194462755365,
+      "mean_r": 1.7414361199434458
+    },
+    {
+      "strategy_name": "long_straddle_72h",
+      "threshold_label": "p80",
+      "topic_bucket": "war_geopolitics",
+      "symbol": "UNG",
+      "trade_count": 85,
+      "win_rate": 0.6588235294117647,
+      "median_r": 1.5384615384615237,
+      "mean_r": 1.5602076843606232
+    },
+    {
+      "strategy_name": "long_straddle_72h",
+      "threshold_label": "p90",
+      "topic_bucket": "war_geopolitics",
+      "symbol": "UNG",
+      "trade_count": 83,
+      "win_rate": 0.6506024096385542,
+      "median_r": 1.4661016949152548,
+      "mean_r": 1.5104536526584693
+    },
+    {
+      "strategy_name": "long_straddle_72h",
+      "threshold_label": "p80",
+      "topic_bucket": "domestic_politics_attacks",
+      "symbol": "UNG",
+      "trade_count": 88,
+      "win_rate": 0.6818181818181818,
+      "median_r": 0.8110119047619053,
+      "mean_r": 1.3579581535822696
+    },
+    {
+      "strategy_name": "long_straddle_72h",
+      "threshold_label": "p80",
+      "topic_bucket": "immigration_border",
+      "symbol": "QQQ",
+      "trade_count": 31,
+      "win_rate": 0.7096774193548387,
+      "median_r": 0.42010309278350455,
+      "mean_r": 1.2435238046370525
+    },
+    {
+      "strategy_name": "long_straddle_24h",
+      "threshold_label": "p80",
+      "topic_bucket": "war_geopolitics",
+      "symbol": "UNG",
+      "trade_count": 86,
+      "win_rate": 0.7325581395348837,
+      "median_r": 0.657142857142859,
+      "mean_r": 1.2286401926190893
+    },
+    {
+      "strategy_name": "long_straddle_24h",
+      "threshold_label": "p90",
+      "topic_bucket": "war_geopolitics",
+      "symbol": "UNG",
+      "trade_count": 84,
+      "win_rate": 0.7380952380952381,
+      "median_r": 0.657142857142859,
+      "mean_r": 1.2215840067290662
+    },
+    {
+      "strategy_name": "long_straddle_72h",
+      "threshold_label": "p90",
+      "topic_bucket": "war_geopolitics",
+      "symbol": "SPY",
+      "trade_count": 71,
+      "win_rate": 0.676056338028169,
+      "median_r": 0.29207920792077413,
+      "mean_r": 1.1941434619688043
+    },
+    {
+      "strategy_name": "long_straddle_72h",
+      "threshold_label": "p80",
+      "topic_bucket": "war_geopolitics",
+      "symbol": "SPY",
+      "trade_count": 90,
+      "win_rate": 0.7111111111111111,
+      "median_r": 0.29207920792077413,
+      "mean_r": 1.1352750072091133
+    },
+    {
+      "strategy_name": "long_straddle_72h",
+      "threshold_label": "p80",
+      "topic_bucket": "war_geopolitics",
+      "symbol": "USO",
+      "trade_count": 63,
+      "win_rate": 0.7142857142857143,
+      "median_r": 0.17647058823529282,
+      "mean_r": 1.1343859865556265
+    },
+    {
+      "strategy_name": "long_straddle_72h",
+      "threshold_label": "p90",
+      "topic_bucket": "domestic_politics_attacks",
+      "symbol": "UNG",
+      "trade_count": 81,
+      "win_rate": 0.654320987654321,
+      "median_r": 0.777777777777747,
+      "mean_r": 1.1282618074583783
+    },
+    {
+      "strategy_name": "long_straddle_72h",
+      "threshold_label": "p80",
+      "topic_bucket": "domestic_politics_attacks",
+      "symbol": "GLD",
+      "trade_count": 87,
+      "win_rate": 0.5977011494252874,
+      "median_r": 0.393274853801179,
+      "mean_r": 1.0996462709031205
+    }
+  ],
+  "worst_topic_symbol_slices": [
+    {
+      "strategy_name": "fade_debit_72h",
+      "threshold_label": "p80",
+      "topic_bucket": "domestic_politics_attacks",
+      "symbol": "SLV",
+      "trade_count": 76,
+      "win_rate": 0.2894736842105263,
+      "median_r": -1.0,
+      "mean_r": -0.453962892991712
+    },
+    {
+      "strategy_name": "fade_debit_72h",
+      "threshold_label": "p90",
+      "topic_bucket": "domestic_politics_attacks",
+      "symbol": "SLV",
+      "trade_count": 62,
+      "win_rate": 0.3387096774193548,
+      "median_r": -0.8920361247947547,
+      "mean_r": -0.36481978913215585
+    },
+    {
+      "strategy_name": "fade_credit_72h",
+      "threshold_label": "p80",
+      "topic_bucket": "domestic_politics_attacks",
+      "symbol": "SLV",
+      "trade_count": 76,
+      "win_rate": 0.40789473684210525,
+      "median_r": -0.9381868131868013,
+      "mean_r": -0.32786295213949407
+    },
+    {
+      "strategy_name": "follow_debit_24h",
+      "threshold_label": "p80",
+      "topic_bucket": "war_geopolitics",
+      "symbol": "SLV",
+      "trade_count": 84,
+      "win_rate": 0.34523809523809523,
+      "median_r": -0.603448275862061,
+      "mean_r": -0.3095566100016485
+    },
+    {
+      "strategy_name": "fade_debit_72h",
+      "threshold_label": "p80",
+      "topic_bucket": "immigration_border",
+      "symbol": "SLV",
+      "trade_count": 31,
+      "win_rate": 0.3548387096774194,
+      "median_r": -0.6493506493506527,
+      "mean_r": -0.29028008811597
+    },
+    {
+      "strategy_name": "fade_debit_72h",
+      "threshold_label": "p90",
+      "topic_bucket": "domestic_politics_attacks",
+      "symbol": "GLD",
+      "trade_count": 60,
+      "win_rate": 0.31666666666666665,
+      "median_r": -0.621239177489181,
+      "mean_r": -0.26379001561993254
+    },
+    {
+      "strategy_name": "follow_debit_24h",
+      "threshold_label": "p90",
+      "topic_bucket": "war_geopolitics",
+      "symbol": "SLV",
+      "trade_count": 69,
+      "win_rate": 0.391304347826087,
+      "median_r": -0.603448275862061,
+      "mean_r": -0.2484148495237424
+    },
+    {
+      "strategy_name": "fade_debit_24h",
+      "threshold_label": "p80",
+      "topic_bucket": "war_geopolitics",
+      "symbol": "UNG",
+      "trade_count": 86,
+      "win_rate": 0.37209302325581395,
+      "median_r": -0.848684210526313,
+      "mean_r": -0.22202409001920007
+    },
+    {
+      "strategy_name": "fade_debit_72h",
+      "threshold_label": "p80",
+      "topic_bucket": "tariffs_trade",
+      "symbol": "SLV",
+      "trade_count": 32,
+      "win_rate": 0.375,
+      "median_r": -0.5011437908496752,
+      "mean_r": -0.2175257602659193
+    },
+    {
+      "strategy_name": "fade_credit_72h",
+      "threshold_label": "p90",
+      "topic_bucket": "domestic_politics_attacks",
+      "symbol": "SLV",
+      "trade_count": 62,
+      "win_rate": 0.4838709677419355,
+      "median_r": -0.06467096122269955,
+      "mean_r": -0.21623019589366146
+    },
+    {
+      "strategy_name": "fade_debit_24h",
+      "threshold_label": "p90",
+      "topic_bucket": "war_geopolitics",
+      "symbol": "UNG",
+      "trade_count": 84,
+      "win_rate": 0.38095238095238093,
+      "median_r": -0.848684210526313,
+      "mean_r": -0.21242942549584748
+    },
+    {
+      "strategy_name": "fade_debit_72h",
+      "threshold_label": "p80",
+      "topic_bucket": "war_geopolitics",
+      "symbol": "GLD",
+      "trade_count": 87,
+      "win_rate": 0.3448275862068966,
+      "median_r": -0.6264367816091777,
+      "mean_r": -0.2092843629129985
+    }
+  ]
+}

@@ -1,0 +1,342 @@
+{
+  "rule_version": "strict_regex_unique_match_v1",
+  "assignment_policy": "Assign a named topic only when exactly one topic family matches burst_text; otherwise classify as other.",
+  "topics": {
+    "tariffs_trade": [
+      {
+        "label": "tariff",
+        "pattern": "\\btariff(?:s)?\\b"
+      },
+      {
+        "label": "trade_deal",
+        "pattern": "\\btrade deal(?:s)?\\b"
+      },
+      {
+        "label": "trade_deficit",
+        "pattern": "\\btrade deficit(?:s)?\\b"
+      },
+      {
+        "label": "trade_barrier",
+        "pattern": "\\btrade barrier(?:s)?\\b"
+      },
+      {
+        "label": "trade_war",
+        "pattern": "\\btrade war\\b"
+      },
+      {
+        "label": "international_trade",
+        "pattern": "\\binternational trade\\b"
+      },
+      {
+        "label": "reciprocal_tariffs",
+        "pattern": "\\breciprocal tariff(?:s)?\\b"
+      },
+      {
+        "label": "reciprocal_trade",
+        "pattern": "\\breciprocal trade\\b"
+      },
+      {
+        "label": "customs",
+        "pattern": "\\bcustoms\\b"
+      },
+      {
+        "label": "duties",
+        "pattern": "\\bdut(?:y|ies)\\b"
+      },
+      {
+        "label": "imports_from",
+        "pattern": "\\bimports?\\s+from\\b"
+      }
+    ],
+    "war_geopolitics": [
+      {
+        "label": "ukraine",
+        "pattern": "\\brukrain(?:e|ian)\\b"
+      },
+      {
+        "label": "russia",
+        "pattern": "\\brussia(?:n)?\\b"
+      },
+      {
+        "label": "putin",
+        "pattern": "\\bputin\\b"
+      },
+      {
+        "label": "zelensky",
+        "pattern": "\\bzelensky(?:y)?\\b"
+      },
+      {
+        "label": "iran",
+        "pattern": "\\biran(?:ian)?\\b"
+      },
+      {
+        "label": "israel",
+        "pattern": "\\bisrael(?:i)?\\b"
+      },
+      {
+        "label": "gaza",
+        "pattern": "\\bgaza\\b"
+      },
+      {
+        "label": "hamas",
+        "pattern": "\\bhamas\\b"
+      },
+      {
+        "label": "hezbollah",
+        "pattern": "\\bhezbollah\\b"
+      },
+      {
+        "label": "houthis",
+        "pattern": "\\bhouthis?\\b"
+      },
+      {
+        "label": "middle_east",
+        "pattern": "\\bmiddle east\\b"
+      },
+      {
+        "label": "hostages",
+        "pattern": "\\bhostages?\\b"
+      },
+      {
+        "label": "missiles",
+        "pattern": "\\bmissiles?\\b"
+      },
+      {
+        "label": "ceasefire",
+        "pattern": "\\bceasefire\\b"
+      },
+      {
+        "label": "nuclear",
+        "pattern": "\\bnuclear\\b"
+      }
+    ],
+    "oil_gas_energy": [
+      {
+        "label": "oil",
+        "pattern": "\\boil\\b"
+      },
+      {
+        "label": "crude",
+        "pattern": "\\bcrude\\b"
+      },
+      {
+        "label": "gas_prices",
+        "pattern": "\\bgas prices\\b"
+      },
+      {
+        "label": "gasoline",
+        "pattern": "\\bgasoline\\b"
+      },
+      {
+        "label": "natural_gas",
+        "pattern": "\\bnatural gas\\b"
+      },
+      {
+        "label": "lng",
+        "pattern": "\\blng\\b"
+      },
+      {
+        "label": "drill",
+        "pattern": "\\bdrill(?:ing)?\\b"
+      },
+      {
+        "label": "frack",
+        "pattern": "\\bfrack(?:ing)?\\b"
+      },
+      {
+        "label": "pipeline",
+        "pattern": "\\bpipeline(?:s)?\\b"
+      },
+      {
+        "label": "petroleum",
+        "pattern": "\\bpetroleum\\b"
+      },
+      {
+        "label": "spr",
+        "pattern": "\\bstrategic petroleum reserve\\b"
+      },
+      {
+        "label": "energy_production",
+        "pattern": "\\benergy production\\b"
+      },
+      {
+        "label": "american_energy",
+        "pattern": "\\bamerican energy\\b"
+      },
+      {
+        "label": "windmills",
+        "pattern": "\\bwindmills?\\b"
+      },
+      {
+        "label": "opec",
+        "pattern": "\\bopec\\b"
+      }
+    ],
+    "fed_inflation_rates": [
+      {
+        "label": "fed",
+        "pattern": "\\bfed\\b"
+      },
+      {
+        "label": "federal_reserve",
+        "pattern": "\\bfederal reserve\\b"
+      },
+      {
+        "label": "jay_powell",
+        "pattern": "\\bjay powell\\b"
+      },
+      {
+        "label": "powell",
+        "pattern": "\\bpowell\\b"
+      },
+      {
+        "label": "inflation",
+        "pattern": "\\binflation\\b"
+      },
+      {
+        "label": "interest_rates",
+        "pattern": "\\binterest rates?\\b"
+      },
+      {
+        "label": "rate_cuts",
+        "pattern": "\\brate cuts?\\b"
+      },
+      {
+        "label": "rate_hikes",
+        "pattern": "\\brate hikes?\\b"
+      },
+      {
+        "label": "mortgage_rates",
+        "pattern": "\\bmortgage rates?\\b"
+      },
+      {
+        "label": "cpi",
+        "pattern": "\\bcpi\\b"
+      },
+      {
+        "label": "pce",
+        "pattern": "\\bpce\\b"
+      }
+    ],
+    "immigration_border": [
+      {
+        "label": "border",
+        "pattern": "\\bborder(?:s)?\\b"
+      },
+      {
+        "label": "immigration",
+        "pattern": "\\bimmigration\\b"
+      },
+      {
+        "label": "immigrants",
+        "pattern": "\\bimmigrant(?:s)?\\b"
+      },
+      {
+        "label": "migrants",
+        "pattern": "\\bmigrant(?:s)?\\b"
+      },
+      {
+        "label": "illegal_aliens",
+        "pattern": "\\billegal alien(?:s)?\\b"
+      },
+      {
+        "label": "deport",
+        "pattern": "\\bdeport(?:ation|ed|ing)?\\b"
+      },
+      {
+        "label": "asylum",
+        "pattern": "\\basylum\\b"
+      },
+      {
+        "label": "border_patrol",
+        "pattern": "\\bborder patrol\\b"
+      },
+      {
+        "label": "fentanyl",
+        "pattern": "\\bfentanyl\\b"
+      },
+      {
+        "label": "cartels",
+        "pattern": "\\bcartel(?:s)?\\b"
+      },
+      {
+        "label": "tren_de_aragua",
+        "pattern": "\\btren de aragua\\b"
+      },
+      {
+        "label": "repatriation",
+        "pattern": "\\brepatriation\\b"
+      }
+    ],
+    "domestic_politics_attacks": [
+      {
+        "label": "crooked_joe",
+        "pattern": "\\bcrooked joe\\b"
+      },
+      {
+        "label": "sleepy_joe",
+        "pattern": "\\bsleepy joe\\b"
+      },
+      {
+        "label": "radical_left",
+        "pattern": "\\bradical left\\b"
+      },
+      {
+        "label": "witch_hunt",
+        "pattern": "\\bwitch hunt\\b"
+      },
+      {
+        "label": "fake_news",
+        "pattern": "\\bfake news\\b"
+      },
+      {
+        "label": "enemy_of_the_people",
+        "pattern": "\\benemy of the people\\b"
+      },
+      {
+        "label": "msdnc",
+        "pattern": "\\bmsdnc\\b"
+      },
+      {
+        "label": "msnbc",
+        "pattern": "\\bmsnbc\\b"
+      },
+      {
+        "label": "cnn",
+        "pattern": "\\bcnn\\b"
+      },
+      {
+        "label": "rachel_maddow",
+        "pattern": "\\brachel maddow\\b"
+      },
+      {
+        "label": "jim_acosta",
+        "pattern": "\\bjim acosta\\b"
+      },
+      {
+        "label": "jack_smith",
+        "pattern": "\\bjack smith\\b"
+      },
+      {
+        "label": "letitia_james",
+        "pattern": "\\bletitia james\\b"
+      },
+      {
+        "label": "alvin_bragg",
+        "pattern": "\\balvin bragg\\b"
+      },
+      {
+        "label": "fani_willis",
+        "pattern": "\\bfani willis\\b"
+      },
+      {
+        "label": "rigged_election",
+        "pattern": "\\brigged election\\b"
+      },
+      {
+        "label": "election_fraud",
+        "pattern": "\\belection fraud\\b"
+      }
+    ]
+  }
+}
