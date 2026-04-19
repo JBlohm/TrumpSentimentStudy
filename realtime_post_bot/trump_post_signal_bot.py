@@ -5,6 +5,9 @@ import argparse
 import json
 import logging
 import os
+import platform
+import shutil
+import subprocess
 import sys
 import threading
 import time
@@ -52,9 +55,12 @@ DEFAULT_STATE_PATH = REPO_ROOT / "realtime_post_bot" / "bot_state.json"
 DEFAULT_OUTPUTS_ROOT = REPO_ROOT / "outputs_strategy_v1"
 DEFAULT_LOG_PATH = REPO_ROOT / "realtime_post_bot" / "trump_post_signal_bot.log"
 EARLIEST_SORT_TS = pd.Timestamp("2000-01-01", tz=TZ_ET)
+ESCALATION_LABELS = {"ESCALATION", "DE-ESCALATION", "NEUTRAL"}
 
 OUTPUT_SYMBOL_ORDER = ["QQQ", "SPY", "USO"]
 LOGGER = logging.getLogger("trump_post_signal_bot")
+HOST_OS = platform.system()
+MACOS_SAY_PATH = shutil.which("say") if HOST_OS == "Darwin" else None
 
 
 @dataclass
@@ -62,6 +68,9 @@ class GeminiDecision:
     category: str
     confidence: float
     ambiguous: bool
+    escalation_label: str
+    escalation_confidence: float
+    escalation_reasoning_short: str
     reasoning_short: str
     model: str
     raw_text: str
@@ -106,6 +115,34 @@ def setup_file_logger(log_file: Path) -> None:
     handler.setFormatter(logging.Formatter("%(asctime)s %(levelname)s %(message)s"))
     LOGGER.addHandler(handler)
     LOGGER.propagate = False
+
+
+def speech_word_for_escalation_label(escalation_label: str) -> str:
+    if escalation_label == "ESCALATION":
+        return "Escalation"
+    if escalation_label == "DE-ESCALATION":
+        return "Deescalation"
+    return "Neutral"
+
+
+def speech_phrase_for_escalation_label(escalation_label: str) -> str:
+    return f"Alert {speech_word_for_escalation_label(escalation_label)}"
+
+
+def emit_actionable_alert(escalation_label: str) -> None:
+    print("\a", end="", flush=True)
+    if HOST_OS != "Darwin" or not MACOS_SAY_PATH:
+        return
+    spoken_phrase = speech_phrase_for_escalation_label(escalation_label)
+    try:
+        subprocess.Popen(
+            [MACOS_SAY_PATH, spoken_phrase],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        LOGGER.info("macos_speech_emitted phrase=%s escalation_label=%s", spoken_phrase, escalation_label)
+    except Exception as exc:
+        LOGGER.warning("macos_speech_failed error=%s", exc)
 
 
 def post_key(post: dict[str, Any]) -> str:
@@ -232,6 +269,15 @@ def parse_gemini_text(response_json: dict[str, Any]) -> str:
     return "\n".join(t for t in texts if t).strip()
 
 
+def normalize_escalation_label(value: Any) -> str:
+    raw = normalize_space(str(value or "")).upper().replace("_", "-")
+    if raw == "DEESCALATION":
+        raw = "DE-ESCALATION"
+    if raw in ESCALATION_LABELS:
+        return raw
+    return "NEUTRAL"
+
+
 def classify_with_gemini(
     session: requests.Session,
     api_key: str,
@@ -244,6 +290,9 @@ def classify_with_gemini(
             category=TOPIC_OTHER,
             confidence=0.0,
             ambiguous=False,
+            escalation_label="NEUTRAL",
+            escalation_confidence=0.0,
+            escalation_reasoning_short="No text was exposed by the archive page.",
             reasoning_short="No text was exposed by the archive page.",
             model=model,
             raw_text="",
@@ -255,7 +304,9 @@ def classify_with_gemini(
         "Valid categories: tariffs_trade, war_geopolitics, oil_gas_energy, fed_inflation_rates, "
         "immigration_border, domestic_politics_attacks, other.\n"
         "Use 'other' when the text is ambiguous, weakly related, or does not clearly fit one bucket.\n"
-        "Return JSON only with keys: category, confidence, ambiguous, reasoning_short.\n\n"
+        "Also decide whether the text represents an ESCALATION, DE-ESCALATION, or NEUTRAL change in the situation.\n"
+        "Return JSON only with keys: category, confidence, ambiguous, reasoning_short, "
+        "escalation_label, escalation_confidence, escalation_reasoning_short.\n\n"
         "Category guidance:\n"
         "- tariffs_trade: tariffs, duties, imports, trade deals, trade barriers, trade deficits.\n"
         "- war_geopolitics: Ukraine/Russia, Israel/Iran/Gaza, missiles, ceasefire, hostages, nuclear, broader war/geopolitics.\n"
@@ -263,6 +314,10 @@ def classify_with_gemini(
         "- fed_inflation_rates: Fed, Powell, inflation, interest rates, CPI, PCE, mortgage rates.\n"
         "- immigration_border: border, immigration, migrants, asylum, deportation, cartels, fentanyl.\n"
         "- domestic_politics_attacks: attacks on domestic political/media/legal opponents, fake news, witch hunt, rigged election.\n"
+        "\nEscalation guidance:\n"
+        "- ESCALATION: raises conflict, threat level, coercion, military risk, trade pressure, sanctions, tariff pressure, or hostile rhetoric.\n"
+        "- DE-ESCALATION: reduces conflict or pressure through ceasefires, talks, deals, reopening, rollbacks, or calming statements.\n"
+        "- NEUTRAL: ceremonial, descriptive, mixed, ambiguous, or no clear directional change in tension/pressure.\n"
         f"\nPost text:\n{text}"
     )
     payload = {
@@ -307,10 +362,19 @@ def classify_with_gemini(
     except (TypeError, ValueError):
         confidence = 0.0
 
+    escalation_confidence_raw = parsed.get("escalation_confidence", 0.0)
+    try:
+        escalation_confidence = float(escalation_confidence_raw)
+    except (TypeError, ValueError):
+        escalation_confidence = 0.0
+
     return GeminiDecision(
         category=category,
         confidence=confidence,
         ambiguous=bool(parsed.get("ambiguous", False)),
+        escalation_label=normalize_escalation_label(parsed.get("escalation_label", "NEUTRAL")),
+        escalation_confidence=escalation_confidence,
+        escalation_reasoning_short=normalize_space(str(parsed.get("escalation_reasoning_short", ""))),
         reasoning_short=normalize_space(str(parsed.get("reasoning_short", ""))),
         model=model,
         raw_text=raw_text,
@@ -323,6 +387,9 @@ def fallback_gemini_decision(text: str) -> GeminiDecision:
         category=str(deterministic["topic_bucket"]),
         confidence=1.0 if deterministic["topic_bucket"] != TOPIC_OTHER else 0.0,
         ambiguous=bool(deterministic["topic_is_ambiguous"]),
+        escalation_label="NEUTRAL",
+        escalation_confidence=0.0,
+        escalation_reasoning_short="Escalation assessment unavailable in deterministic fallback; defaulted to NEUTRAL.",
         reasoning_short="Deterministic fallback from the study rules.",
         model="deterministic_rules",
         raw_text=json.dumps(deterministic),
@@ -556,7 +623,7 @@ def emit_post_summary(
 ) -> None:
     posted_at = post["parsed_time_et"].isoformat() if post.get("parsed_time_et") is not None else post["displayed_time_et"]
     if emit_bell and tradable_watches:
-        print("\a", end="", flush=True)
+        emit_actionable_alert(gemini.escalation_label)
     print(
         f"{header_label} status_id={post.get('archive_status_id')} posted_at_et={posted_at} "
         f"final_category={final_category} tradable={bool(tradable_watches)}",
@@ -569,8 +636,15 @@ def emit_post_summary(
         f"gemini_ambiguous={gemini.ambiguous} gemini_model={gemini.model}",
         flush=True,
     )
+    print(
+        f"gemini_escalation={gemini.escalation_label} "
+        f"gemini_escalation_confidence={gemini.escalation_confidence:.2f}",
+        flush=True,
+    )
     if gemini.reasoning_short:
         print(f"gemini_reasoning={gemini.reasoning_short}", flush=True)
+    if gemini.escalation_reasoning_short:
+        print(f"gemini_escalation_reasoning={gemini.escalation_reasoning_short}", flush=True)
     print(
         f"rule_category={deterministic_meta['topic_bucket']} "
         f"rule_ambiguous={deterministic_meta['topic_is_ambiguous']} "
@@ -623,11 +697,13 @@ def process_new_posts(
                 tws_client_id=tws_client_id,
             )
             LOGGER.info(
-                "startup_preview %s final_category=%s tradable=%s text_source=%s",
+                "startup_preview %s final_category=%s tradable=%s text_source=%s escalation=%s escalation_confidence=%.2f",
                 post_key(latest_text_post),
                 latest_analysis["final_category"],
                 bool(latest_analysis["tradable_watches"]),
                 latest_analysis["text_source"],
+                latest_analysis["gemini"].escalation_label,
+                latest_analysis["gemini"].escalation_confidence,
             )
             emit_post_summary(
                 post=latest_text_post,
@@ -639,7 +715,7 @@ def process_new_posts(
                 tradable_watches=latest_analysis["tradable_watches"],
                 tws_status=latest_analysis["tws_status"],
                 header_label="[startup]",
-                emit_bell=False,
+                emit_bell=True,
             )
             previewed_status_id = latest_text_post.get("archive_status_id")
         else:
@@ -690,13 +766,15 @@ def process_new_posts(
             tws_client_id=tws_client_id,
         )
         LOGGER.info(
-            "processed_post %s final_category=%s tradable=%s text_source=%s gemini_category=%s gemini_confidence=%.2f",
+            "processed_post %s final_category=%s tradable=%s text_source=%s gemini_category=%s gemini_confidence=%.2f escalation=%s escalation_confidence=%.2f",
             post_key(post),
             analysis["final_category"],
             bool(analysis["tradable_watches"]),
             analysis["text_source"],
             analysis["gemini"].category,
             analysis["gemini"].confidence,
+            analysis["gemini"].escalation_label,
+            analysis["gemini"].escalation_confidence,
         )
         if analysis["tws_status"] is not None:
             LOGGER.info(
@@ -749,6 +827,12 @@ def main() -> int:
     args = parse_args()
     setup_file_logger(args.log_file)
     LOGGER.info("bot_start state_file=%s log_file=%s poll_seconds=%s per_page=%s", args.state_file, args.log_file, args.poll_seconds, args.per_page)
+    LOGGER.info(
+        "host_os=%s macos_speech_enabled=%s macos_say_path=%s",
+        HOST_OS,
+        bool(MACOS_SAY_PATH),
+        MACOS_SAY_PATH or "",
+    )
     if args.poll_seconds != DEFAULT_POLL_SECONDS:
         print(
             f"[config] poll_seconds={args.poll_seconds} (default study bot cadence is {DEFAULT_POLL_SECONDS}s / 5 minutes)",

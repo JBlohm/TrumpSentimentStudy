@@ -76,8 +76,10 @@ Do not use the old scratch `.deps` directory from the projectless workspace. Thi
 - The stricter `MNQ` / `MES` / `CL` execution model still uses `QQQ` / `SPY` / `USO` ETF bars as execution proxies; it is not a true futures-tick or options-chain backtest
 - The futures-options structure map is heuristic sizing guidance tied to the backtest logic; it is not validated with live IV, bid/ask, slippage, or assignment data
 - The realtime post bot uses Gemini 3 for live category assignment but still inherits the archive-text caveat: if `trumpstruth.org` exposes no usable body or card text for a new post, the bot can only classify it as `other`
+- The realtime post bot also asks Gemini for a live `ESCALATION` / `DE-ESCALATION` / `NEUTRAL` assessment with its own confidence; if Gemini is unavailable, that escalation field falls back conservatively to `NEUTRAL` with `0.0` confidence
 - The realtime bot's `60-minute` validation levels are study-derived watch thresholds, not live market-data signals or broker-tested execution triggers
 - The realtime bot suppresses no-text posts from stdout, but still records them in the logfile and advances its seen-post state
+- The realtime bot speaks a macOS-only phrase via the native `say` command: `Alert Escalation`, `Alert Deescalation`, or `Alert Neutral`; on non-mac hosts that speech path is skipped
 
 ## Commands
 
@@ -168,10 +170,10 @@ Run the realtime 5-minute Trump post bot:
 - The strategy backtest uses a `60-minute` confirmation entry, threshold buckets at `all`, `p80`, and `p90`, and fixed `24h` / `72h` exits
 - The stricter futures execution model is delayed-only, tests `30m` / `60m` / `90m` entries, `0.75x` / `1.0x` shock-unit stops, baseline-cross profit targets, and `12h` / `24h` time stops
 - Use `outputs_strategy_v1/futures_execution_v1/execution_recommended_configs.csv` for the recommended `MNQ` / `MES` / `CL` templates and `futures_options_structure_map.csv` for the matching heuristic options structures
-- The realtime bot polls every `5 minutes`, uses `GOOGLE_API_KEY`, prints the latest post with usable text on startup, suppresses no-text posts from stdout, emits a `.` heartbeat after each successful poll cycle, bootstraps without replaying old posts on first run, persists `last_seen_status_id` in `realtime_post_bot/bot_state.json`, and appends detailed actions to `realtime_post_bot/trump_post_signal_bot.log`
+- The realtime bot polls every `5 minutes`, uses `GOOGLE_API_KEY`, prints the latest post with usable text on startup, emits the normal actionable alert path for an actionable startup preview, prints both Gemini topic and Gemini escalation assessments with separate confidences, suppresses no-text posts from stdout, emits a `.` heartbeat after each successful poll cycle, bootstraps without replaying old posts on first run, persists `last_seen_status_id` in `realtime_post_bot/bot_state.json`, appends detailed actions to `realtime_post_bot/trump_post_signal_bot.log`, and on macOS speaks the Gemini escalation word for actionable posts
 - If you add a new study variant, write outputs to a new directory rather than overwriting the current validated baseline unless the user asks
 
 ## Repo State
 
-- This directory is not currently a Git repository
-- Do not assume branch, commit, or PR workflows exist here
+- This directory is now a local Git repository
+- No remote is configured yet
