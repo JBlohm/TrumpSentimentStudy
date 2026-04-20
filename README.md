@@ -55,9 +55,10 @@ The main human-readable summaries are:
 ## Environment
 
 Use the repo-local virtual environment only:
+Replace `<REPO_ROOT>` below with your local checkout path, for example `/Users/<your-username>/path/to/TrumpSentimentStudy`.
 
-- Python: `/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python`
-- Pip: `/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/pip`
+- Python: `<REPO_ROOT>/.venv/bin/python`
+- Pip: `<REPO_ROOT>/.venv/bin/pip`
 - Adjust these paths for your local setup
 
 Installed packages are recorded in:
@@ -131,7 +132,7 @@ These definitions should stay fixed unless intentionally replaced:
 Scrape archive rows:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py scrape-posts \
+<REPO_ROOT>/.venv/bin/python truth_event_study.py scrape-posts \
   --output data/trump_truth_posts.csv \
   --start-date 2025-01-20
 ```
@@ -139,7 +140,7 @@ Scrape archive rows:
 Fetch market data from TWS:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py fetch-market \
+<REPO_ROOT>/.venv/bin/python truth_event_study.py fetch-market \
   --output-dir data/market_5m \
   --symbols SPY QQQ GLD SLV USO UNG \
   --start-date-et 2025-01-20 \
@@ -152,7 +153,7 @@ Fetch market data from TWS:
 Run the validated baseline analysis:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py analyze \
+<REPO_ROOT>/.venv/bin/python truth_event_study.py analyze \
   --posts-csv data/trump_truth_posts.csv \
   --market-dir data/market_5m \
   --output-dir outputs \
@@ -162,7 +163,7 @@ Run the validated baseline analysis:
 Run the deterministic topic study into a separate directory:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py analyze \
+<REPO_ROOT>/.venv/bin/python truth_event_study.py analyze \
   --posts-csv data/trump_truth_posts.csv \
   --market-dir data/market_5m \
   --output-dir outputs_topics_v1 \
@@ -172,7 +173,7 @@ Run the deterministic topic study into a separate directory:
 Run the topic-aware strategy backtest:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py backtest-strategy \
+<REPO_ROOT>/.venv/bin/python truth_event_study.py backtest-strategy \
   --posts-csv data/trump_truth_posts.csv \
   --market-dir data/market_5m \
   --output-dir outputs_strategy_v1 \
@@ -182,7 +183,7 @@ Run the topic-aware strategy backtest:
 Run the stricter futures execution study:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python truth_event_study.py backtest-futures-execution \
+<REPO_ROOT>/.venv/bin/python truth_event_study.py backtest-futures-execution \
   --posts-csv data/trump_truth_posts.csv \
   --market-dir data/market_5m \
   --output-dir outputs_strategy_v1/futures_execution_v1 \
@@ -194,8 +195,8 @@ Run the stricter futures execution study:
 Run the realtime post bot:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python \
-  /Users/jblo/jblo_repos/TrumpSentimentStudy/realtime_post_bot/trump_post_signal_bot.py
+<REPO_ROOT>/.venv/bin/python \
+  <REPO_ROOT>/realtime_post_bot/trump_post_signal_bot.py
 ```
 
 What it does:

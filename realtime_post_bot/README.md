@@ -36,16 +36,18 @@ Derived from `outputs_strategy_v1/strategy_topic_symbol_summary.csv` using delay
 
 ## Run
 
+Replace `<REPO_ROOT>` below with your local checkout path, for example `/Users/<your-username>/path/to/TrumpSentimentStudy`.
+
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python \
-  /Users/jblo/jblo_repos/TrumpSentimentStudy/realtime_post_bot/trump_post_signal_bot.py
+<REPO_ROOT>/.venv/bin/python \
+  <REPO_ROOT>/realtime_post_bot/trump_post_signal_bot.py
 ```
 
 One-shot test:
 
 ```bash
-/Users/jblo/jblo_repos/TrumpSentimentStudy/.venv/bin/python \
-  /Users/jblo/jblo_repos/TrumpSentimentStudy/realtime_post_bot/trump_post_signal_bot.py \
+<REPO_ROOT>/.venv/bin/python \
+  <REPO_ROOT>/realtime_post_bot/trump_post_signal_bot.py \
   --once
 ```
 
