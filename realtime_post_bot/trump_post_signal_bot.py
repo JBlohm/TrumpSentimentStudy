@@ -127,16 +127,12 @@ def choose_sleep_seconds(base_poll_seconds: int, max_jitter_seconds: int) -> int
     return base_poll_seconds + random.randint(0, max_jitter_seconds)
 
 
-def speech_word_for_escalation_label(escalation_label: str) -> str:
-    if escalation_label == "ESCALATION":
-        return "Escalation"
-    if escalation_label in {"DE-ESCALATION", "DEESCALATION"}:
-        return "Easing"
-    return "Neutral"
-
-
 def speech_phrase_for_escalation_label(escalation_label: str) -> str:
-    return f"Alert {speech_word_for_escalation_label(escalation_label)}"
+    if escalation_label == "ESCALATION":
+        return "Red Alert"
+    if escalation_label in {"DE-ESCALATION", "DEESCALATION"}:
+        return "Stand Down"
+    return "No Change"
 
 
 def emit_actionable_alert(escalation_label: str) -> None:
