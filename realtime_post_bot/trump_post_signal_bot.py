@@ -129,10 +129,10 @@ def choose_sleep_seconds(base_poll_seconds: int, max_jitter_seconds: int) -> int
 
 def speech_phrase_for_escalation_label(escalation_label: str) -> str:
     if escalation_label == "ESCALATION":
-        return "Red Alert"
+        return "Alert, Red Alert"
     if escalation_label in {"DE-ESCALATION", "DEESCALATION"}:
-        return "Stand Down"
-    return "No Change"
+        return "Alert, Stand Down"
+    return "Alert, No Change"
 
 
 def emit_actionable_alert(escalation_label: str) -> None:

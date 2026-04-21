@@ -18,10 +18,10 @@ This bot polls the public `trumpstruth.org` archive on a randomized `1-3 minute`
   - `other`
 - falls back to the repo's deterministic study rules if the Gemini call fails
 - emits the alert path only when the final category is one of the categories that looked actionable in the existing delayed-event study
-- the alert path is a single terminal bell plus, on macOS only, a short spoken phrase via the native `say` command chosen to stay distinguishable in a noisy room:
-  - `Red Alert`
-  - `Stand Down`
-  - `No Change`
+- the alert path is a single terminal bell plus, on macOS only, a short spoken phrase via the native `say` command chosen to stay distinguishable in a noisy room; the spoken text includes a comma after `Alert` to force a brief pause:
+  - `Alert, Red Alert`
+  - `Alert, Stand Down`
+  - `Alert, No Change`
 - if TWS is reachable, prints the approximate `60-minute` validation move required in the relevant underlying(s)
 - appends an action log to `realtime_post_bot/trump_post_signal_bot.log`
 
@@ -80,7 +80,7 @@ Optional overrides:
 - the default sleep window after each poll is `60-180` seconds
 - the bot persists `last_seen_status_id` in `realtime_post_bot/bot_state.json`
 - the bot appends a timestamped action log to `realtime_post_bot/trump_post_signal_bot.log`
-- spoken macOS output is derived from the Gemini escalation label and uses the short phrases `Red Alert`, `Stand Down`, and `No Change`; it is ignored on non-mac hosts
+- spoken macOS output is derived from the Gemini escalation label and uses the short phrases `Alert, Red Alert`, `Alert, Stand Down`, and `Alert, No Change`; it is ignored on non-mac hosts
 - internet/archive/Gemini/TWS failures do not terminate the bot; the failure is logged and the bot retries on the next poll cycle
 - the current fetch depth is the latest `40` original posts per poll by default, so a burst larger than that between polls could exceed the fetch window
 - the `60-minute` validation move is an approximate study-derived watch level, not a live chain-level trade trigger

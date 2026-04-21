@@ -80,7 +80,7 @@ Do not use the old scratch `.deps` directory from the projectless workspace. Thi
 - The realtime post bot also asks Gemini for a live `ESCALATION` / `DE-ESCALATION` / `NEUTRAL` assessment with its own confidence; if Gemini is unavailable, that escalation field falls back conservatively to `NEUTRAL` with `0.0` confidence
 - The realtime bot's `60-minute` validation levels are study-derived watch thresholds, not live market-data signals or broker-tested execution triggers
 - The realtime bot suppresses no-text posts from stdout, but still records them in the logfile and advances its seen-post state
-- The realtime bot speaks a macOS-only phrase via the native `say` command: `Red Alert`, `Stand Down`, or `No Change`; on non-mac hosts that speech path is skipped
+- The realtime bot speaks a macOS-only phrase via the native `say` command: `Alert, Red Alert`, `Alert, Stand Down`, or `Alert, No Change`; on non-mac hosts that speech path is skipped
 
 ## Commands
 
@@ -172,7 +172,7 @@ Run the realtime Trump post bot:
 - The strategy backtest uses a `60-minute` confirmation entry, threshold buckets at `all`, `p80`, and `p90`, and fixed `24h` / `72h` exits
 - The stricter futures execution model is delayed-only, tests `30m` / `60m` / `90m` entries, `0.75x` / `1.0x` shock-unit stops, baseline-cross profit targets, and `12h` / `24h` time stops
 - Use `outputs_strategy_v1/futures_execution_v1/execution_recommended_configs.csv` for the recommended `MNQ` / `MES` / `CL` templates and `futures_options_structure_map.csv` for the matching heuristic options structures
-- The realtime bot polls on a default jittered `60-180` second cadence, uses `GOOGLE_API_KEY`, prints the latest post with usable text on startup, emits the normal actionable alert path for an actionable startup preview, prints both Gemini topic and Gemini escalation assessments with separate confidences, suppresses no-text posts from stdout, emits a `.` heartbeat after each successful poll cycle, bootstraps without replaying old posts on first run, persists `last_seen_status_id` in `realtime_post_bot/bot_state.json`, appends detailed actions to `realtime_post_bot/trump_post_signal_bot.log`, and on macOS speaks `Red Alert`, `Stand Down`, or `No Change` for actionable posts
+- The realtime bot polls on a default jittered `60-180` second cadence, uses `GOOGLE_API_KEY`, prints the latest post with usable text on startup, emits the normal actionable alert path for an actionable startup preview, prints both Gemini topic and Gemini escalation assessments with separate confidences, suppresses no-text posts from stdout, emits a `.` heartbeat after each successful poll cycle, bootstraps without replaying old posts on first run, persists `last_seen_status_id` in `realtime_post_bot/bot_state.json`, appends detailed actions to `realtime_post_bot/trump_post_signal_bot.log`, and on macOS speaks `Alert, Red Alert`, `Alert, Stand Down`, or `Alert, No Change` for actionable posts
 - If you add a new study variant, write outputs to a new directory rather than overwriting the current validated baseline unless the user asks
 
 ## Repo State
