@@ -130,8 +130,8 @@ def choose_sleep_seconds(base_poll_seconds: int, max_jitter_seconds: int) -> int
 def speech_word_for_escalation_label(escalation_label: str) -> str:
     if escalation_label == "ESCALATION":
         return "Escalation"
-    if escalation_label == "DE-ESCALATION":
-        return "Deescalation"
+    if escalation_label in {"DE-ESCALATION", "DEESCALATION"}:
+        return "Easing"
     return "Neutral"
 
 
